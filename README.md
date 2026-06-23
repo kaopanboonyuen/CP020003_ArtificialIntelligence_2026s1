@@ -71,7 +71,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 | Resource | Link |
 |:---|:---|
-| 🐍 Python Recap Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week1_InClass.ipynb) |
+| 🐍 Python Recap Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Python101_Recap_Complete_Panboonyuen.ipynb) |
 
 > *Covers*: Python syntax · NumPy arrays · Pandas DataFrames · data exploration · basic plotting
 
