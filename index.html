@@ -1,171 +1,909 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CP020003 — Artificial Intelligence</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CP020003 — Artificial Intelligence · Khon Kaen University</title>
+<meta name="description" content="Artificial Intelligence — a course by Teerapong Panboonyuen (P'Kao), Khon Kaen University. From data to intelligence.">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f0c29;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+<style>
+  :root{
+    --ink: #0c0b14;
+    --ink-soft: #4a4856;
+    --paper: #faf9f6;
+    --paper-raised: #ffffff;
+    --line: rgba(12,11,20,0.09);
+    --violet: #5b3df5;
+    --violet-deep: #3d22c9;
+    --teal: #0ea5a0;
+    --coral: #ff6b5b;
+    --gold: #e8a23d;
+    --glow: rgba(91,61,245,0.16);
 
-    .hero {
-      text-align: center;
-      padding: 40px 20px;
-    }
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
 
-    .hero h1 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
+    --maxw: 1180px;
+  }
 
-    .hero p {
-      opacity: 0.8;
-      font-size: 16px;
-    }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
 
-    .owner {
-      margin-top: 10px;
-      font-size: 14px;
-      opacity: 0.85;
-    }
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
 
-    .badge-row {
-      text-align: center;
-      margin: 20px 0 40px;
-    }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
 
-    .section {
-      margin: 50px 0;
-    }
+  a{ color: inherit; }
+  ::selection{ background: var(--glow); color: var(--violet-deep); }
 
-    h2 {
-      border-left: 4px solid #6c63ff;
-      padding-left: 10px;
-      font-size: 20px;
-    }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
 
-    .card {
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 15px;
-    }
+  /* ---------- subtle noise / grain ---------- */
+  .grain{
+    position: fixed; inset: 0; z-index: 999; pointer-events: none;
+    opacity: 0.035; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
+  /* ============ NAV ============ */
+  nav{
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,249,246,0.78);
+    backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid transparent;
+    transition: border-color .4s ease, box-shadow .4s ease;
+  }
+  nav.scrolled{ border-bottom-color: var(--line); box-shadow: 0 8px 24px -16px rgba(12,11,20,0.15); }
+  .nav-inner{
+    max-width: var(--maxw); margin: 0 auto; padding: 18px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em;
+    text-decoration:none; color: var(--ink);
+  }
+  .brand-mark{
+    width: 26px; height: 26px; border-radius: 7px;
+    background: linear-gradient(135deg, var(--violet), var(--teal));
+    display:flex; align-items:center; justify-content:center;
+    color:white; font-weight:700; font-size:12px; font-family: var(--sans);
+    flex-shrink:0;
+  }
+  .navlinks{ display:flex; gap:36px; font-size: 14px; font-weight: 500; }
+  .navlinks a{ text-decoration:none; color: var(--ink-soft); position:relative; padding: 4px 0; transition: color .25s; }
+  .navlinks a:hover{ color: var(--ink); }
+  .navlinks a::after{
+    content:''; position:absolute; left:0; bottom:-2px; height:1.5px; width:0%;
+    background: var(--violet); transition: width .3s ease;
+  }
+  .navlinks a:hover::after{ width:100%; }
+  .nav-cta{
+    font-size: 13px; font-weight:600; padding: 9px 18px; border-radius:999px;
+    background: var(--ink); color: var(--paper); text-decoration:none;
+    transition: transform .25s, background .25s;
+  }
+  .nav-cta:hover{ background: var(--violet); transform: translateY(-1px); }
+  @media (max-width: 820px){ .navlinks{ display:none; } }
 
-    .quote {
-      text-align: center;
-      font-style: italic;
-      opacity: 0.8;
-      margin-top: 20px;
-    }
+  /* ============ HERO ============ */
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding: 140px 0 80px;
+    overflow: hidden;
+  }
+  #neural-canvas{
+    position:absolute; inset:0; z-index:0;
+    width:100%; height:100%;
+  }
+  .hero-content{ position:relative; z-index:2; }
 
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      font-size: 12px;
-      opacity: 0.6;
-    }
-  </style>
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.08em;
+    color: var(--violet-deep); text-transform: uppercase;
+    background: rgba(91,61,245,0.07);
+    border: 1px solid rgba(91,61,245,0.18);
+    padding: 7px 14px; border-radius: 999px;
+    margin-bottom: 28px;
+    opacity:0; animation: rise .8s .15s cubic-bezier(.16,1,.3,1) forwards;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background: var(--teal); animation: pulse 2s infinite; }
+
+  .hero h1{
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(48px, 7.4vw, 104px);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    max-width: 980px;
+    color: var(--ink);
+  }
+  .hero h1 .line{ display:block; overflow:hidden; }
+  .hero h1 .line span{ display:block; opacity:0; transform: translateY(110%); animation: rise .9s cubic-bezier(.16,1,.3,1) forwards; }
+  .hero h1 .line:nth-child(1) span{ animation-delay: .25s; }
+  .hero h1 .line:nth-child(2) span{ animation-delay: .38s; }
+  .hero h1 .accent-word{
+    font-style: italic;
+    font-weight: 500;
+    background: linear-gradient(100deg, var(--violet) 10%, var(--teal) 60%, var(--coral) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .hero-sub{
+    margin-top: 30px; max-width: 560px;
+    font-size: 18px; color: var(--ink-soft); font-weight: 400; line-height: 1.65;
+    opacity:0; animation: rise .8s .55s cubic-bezier(.16,1,.3,1) forwards;
+  }
+
+  .hero-meta{
+    margin-top: 48px; display:flex; flex-wrap:wrap; align-items:center; gap: 28px;
+    opacity:0; animation: rise .8s .7s cubic-bezier(.16,1,.3,1) forwards;
+  }
+  .instructor-chip{
+    display:flex; align-items:center; gap:12px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 18px 8px 8px;
+    box-shadow: 0 10px 30px -18px rgba(12,11,20,0.25);
+  }
+  .instructor-avatar{
+    width:36px; height:36px; border-radius:50%;
+    background: linear-gradient(135deg, var(--violet), var(--coral));
+    display:flex; align-items:center; justify-content:center;
+    color:white; font-family: var(--serif); font-weight:600; font-size:15px;
+  }
+  .instructor-chip .name{ font-size: 14px; font-weight:600; }
+  .instructor-chip .role{ font-size: 12.5px; color: var(--ink-soft); }
+
+  .meta-divider{ width:1px; height:30px; background: var(--line); }
+  .meta-item{ font-size: 13.5px; color: var(--ink-soft); font-family: var(--mono); }
+  .meta-item b{ color: var(--ink); font-weight: 600; }
+
+  .scroll-cue{
+    position:absolute; bottom: 36px; left: 32px; z-index:2;
+    display:flex; align-items:center; gap:10px;
+    font-family: var(--mono); font-size: 11.5px; letter-spacing:0.08em;
+    color: var(--ink-soft); text-transform:uppercase;
+    opacity:0; animation: rise .8s 1.1s cubic-bezier(.16,1,.3,1) forwards;
+  }
+  .scroll-cue .line-anim{ width: 28px; height:1px; background: var(--ink-soft); position:relative; overflow:hidden; }
+  .scroll-cue .line-anim::after{
+    content:''; position:absolute; left:-100%; top:0; width:100%; height:100%;
+    background: var(--violet); animation: sweep 2.2s ease-in-out infinite;
+  }
+
+  @keyframes rise{ to{ opacity:1; transform: translateY(0); } }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.35; } }
+  @keyframes sweep{ 0%{ left:-100%; } 50%{ left:100%; } 100%{ left:100%; } }
+
+  /* ============ SECTION SCAFFOLDING ============ */
+  section{ padding: 130px 0; position:relative; }
+  .section-head{ max-width: 680px; margin-bottom: 64px; }
+  .section-label{
+    font-family: var(--mono); font-size: 12.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color: var(--violet-deep); margin-bottom: 18px; display:block;
+  }
+  .section-head h2{
+    font-family: var(--serif); font-weight:600; font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.08; letter-spacing:-0.01em;
+  }
+  .section-head p{
+    margin-top: 18px; font-size: 17px; color: var(--ink-soft); max-width: 540px; line-height:1.65;
+  }
+
+  .reveal{ opacity:0; transform: translateY(36px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+
+  /* ============ STACK / PHILOSOPHY (AI ⊃ ML ⊃ DL ⊃ FM) ============ */
+  .stack-section{ background: var(--paper); }
+  .stack-grid{
+    display:grid; grid-template-columns: 1.1fr 1fr; gap: 70px; align-items:center;
+  }
+  @media (max-width: 900px){ .stack-grid{ grid-template-columns: 1fr; gap: 50px; } }
+
+  .stack-rings{ position:relative; width:100%; aspect-ratio: 1/1; max-width: 460px; margin: 0 auto; }
+  .ring{
+    position:absolute; border-radius:50%; border: 1.5px solid;
+    display:flex; justify-content:center;
+    transition: transform .4s ease;
+  }
+  .ring span{
+    font-family: var(--mono); font-size: 11.5px; letter-spacing:0.06em;
+    padding-top: 14px; text-transform: uppercase; font-weight:600;
+  }
+  .ring-ai{ inset:0%; border-color: rgba(91,61,245,0.28); background: rgba(91,61,245,0.025); }
+  .ring-ai span{ color: var(--violet-deep); }
+  .ring-ml{ inset:14%; border-color: rgba(14,165,160,0.32); background: rgba(14,165,160,0.04); }
+  .ring-ml span{ color: var(--teal); }
+  .ring-dl{ inset:30%; border-color: rgba(255,107,91,0.38); background: rgba(255,107,91,0.05); }
+  .ring-dl span{ color: var(--coral); }
+  .ring-fm{
+    inset:48%; border-color: var(--ink); background: var(--ink);
+    align-items:center;
+  }
+  .ring-fm span{ color: var(--paper); padding-top:0; font-size: 10.5px; text-align:center; line-height:1.3; }
+  .stack-rings:hover .ring-ai{ transform: scale(1.02); }
+  .stack-rings:hover .ring-fm{ transform: scale(1.06); }
+
+  .stack-copy h3{
+    font-family: var(--serif); font-size: 26px; font-weight: 600; margin-bottom: 14px;
+  }
+  .stack-list{ display:flex; flex-direction:column; gap: 22px; margin-top: 28px; }
+  .stack-item{ display:flex; gap:16px; align-items:flex-start; }
+  .stack-item .swatch{ width:10px; height:10px; border-radius:50%; margin-top:7px; flex-shrink:0; }
+  .stack-item h4{ font-size: 15.5px; font-weight: 700; margin-bottom: 4px; }
+  .stack-item p{ font-size: 14.5px; color: var(--ink-soft); line-height:1.55; max-width: 420px; }
+
+  /* ============ CONCEPT PILLARS (bento) ============ */
+  .pillars-section{ background: var(--paper-raised); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .pillar-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow:hidden;
+  }
+  @media (max-width: 900px){ .pillar-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 620px){ .pillar-grid{ grid-template-columns: 1fr; } }
+
+  .pillar{
+    background: var(--paper-raised);
+    padding: 38px 32px;
+    position: relative;
+    transition: background .35s ease;
+    min-height: 240px;
+    display:flex; flex-direction:column;
+  }
+  .pillar:hover{ background: #fcfbf8; }
+  .pillar-num{
+    font-family: var(--mono); font-size: 12px; color: var(--ink-soft); opacity:.6; margin-bottom: 22px;
+  }
+  .pillar-icon{
+    width: 42px; height:42px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 20px;
+    font-size: 19px;
+  }
+  .pillar h3{ font-family: var(--serif); font-size: 21px; font-weight:600; margin-bottom:10px; line-height:1.2; }
+  .pillar p{ font-size: 14.5px; color: var(--ink-soft); line-height:1.6; flex-grow:1; }
+  .pillar-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:18px; }
+  .pillar-tags span{
+    font-family: var(--mono); font-size: 10.5px; color: var(--ink-soft);
+    background: rgba(12,11,20,0.04); border:1px solid var(--line);
+    padding: 3px 9px; border-radius:999px;
+  }
+
+  /* ============ TRANSFORMER / ATTENTION SIGNATURE SECTION ============ */
+  .attention-section{ background: var(--ink); color: var(--paper); overflow:hidden; }
+  .attention-section .section-label{ color: #b9aaff; }
+  .attention-section .section-head h2{ color: var(--paper); }
+  .attention-section .section-head p{ color: rgba(250,249,246,0.62); }
+
+  .attn-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items:center; }
+  @media (max-width: 900px){ .attn-wrap{ grid-template-columns:1fr; gap: 50px; } }
+
+  .attn-visual{ position:relative; }
+  .token-row{ display:flex; justify-content:space-between; position:relative; z-index:2; margin-bottom: 130px; }
+  .token{
+    font-family: var(--mono); font-size: 13px; padding: 9px 14px;
+    border: 1px solid rgba(250,249,246,0.18); border-radius: 8px;
+    background: rgba(250,249,246,0.04);
+    color: rgba(250,249,246,0.85);
+    cursor:default;
+  }
+  .token.active{ background: var(--violet); border-color: var(--violet); color:white; }
+  #attn-svg{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; pointer-events:none; }
+
+  .attn-formula{
+    margin-top: 28px;
+    font-family: var(--mono); font-size: 14px; color: #b9aaff;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    padding: 16px 20px; border-radius: 10px; display:inline-block;
+  }
+
+  .attn-copy p{ font-size: 16.5px; line-height: 1.7; color: rgba(250,249,246,0.72); margin-bottom: 20px; }
+  .attn-copy p b{ color: var(--paper); font-weight:600; }
+
+  /* ============ TOOLKIT MARQUEE ============ */
+  .toolkit-section{ background: var(--paper); }
+  .marquee-track{
+    display:flex; gap: 14px; width: max-content;
+    animation: scroll-left 38s linear infinite;
+  }
+  .marquee-row{ overflow:hidden; mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); margin-bottom: 14px; }
+  .marquee-row.reverse .marquee-track{ animation: scroll-right 32s linear infinite; }
+  .pill{
+    font-family: var(--mono); font-size: 13.5px; padding: 10px 20px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--paper-raised); white-space:nowrap;
+    color: var(--ink-soft); font-weight:500;
+  }
+  .pill b{ color: var(--ink); }
+  @keyframes scroll-left{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+  @keyframes scroll-right{ from{ transform: translateX(-50%); } to{ transform: translateX(0); } }
+
+  /* ============ OUTCOMES ============ */
+  .outcomes-section .wrap{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; }
+  @media (max-width: 900px){ .outcomes-section .wrap{ grid-template-columns:1fr; gap:50px; } }
+  .outcome-list{ display:flex; flex-direction:column; }
+  .outcome-row{
+    display:flex; align-items:center; gap:20px; padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+  .outcome-row:last-child{ border-bottom: 1px solid var(--line); }
+  .outcome-check{
+    width:26px; height:26px; border-radius:50%; flex-shrink:0;
+    background: var(--violet); display:flex; align-items:center; justify-content:center;
+    color:white; font-size:13px;
+  }
+  .outcome-row p{ font-size: 16px; font-weight:500; }
+  .outcome-row p em{ font-style:normal; color: var(--ink-soft); font-weight:400; }
+
+  .quote-card{
+    background: linear-gradient(155deg, #1c1730, #0c0b14);
+    color: var(--paper); border-radius: 22px; padding: 48px 40px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    position:relative; overflow:hidden;
+  }
+  .quote-card::before{
+    content:'"'; position:absolute; top:-30px; right:10px; font-family: var(--serif);
+    font-size: 220px; color: rgba(255,255,255,0.05); line-height:1;
+  }
+  .quote-card p{ font-family: var(--serif); font-size: 24px; line-height:1.45; font-weight:400; position:relative; z-index:1; }
+  .quote-attr{ margin-top: 28px; font-family: var(--mono); font-size: 12.5px; color: #b9aaff; position:relative; z-index:1; }
+
+  /* ============ FINAL CTA ============ */
+  .cta-section{ text-align:center; padding: 160px 0 140px; }
+  .cta-section h2{
+    font-family: var(--serif); font-weight:600; font-size: clamp(40px, 6vw, 76px); line-height:1.05; letter-spacing:-0.01em;
+  }
+  .cta-section .accent-word{
+    font-style: italic; font-weight:500;
+    background: linear-gradient(100deg, var(--violet), var(--teal));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .cta-section p{ margin: 26px auto 0; max-width: 480px; color: var(--ink-soft); font-size: 17px; }
+  .cta-buttons{ display:flex; gap:16px; justify-content:center; margin-top: 42px; flex-wrap:wrap; }
+  .btn{
+    font-size: 14.5px; font-weight:600; padding: 15px 28px; border-radius: 999px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .btn-primary{ background: var(--ink); color: var(--paper); }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(12,11,20,0.35); }
+  .btn-secondary{ background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn-secondary:hover{ border-color: var(--ink); transform: translateY(-2px); }
+
+  /* ============ FOOTER ============ */
+  footer{ border-top: 1px solid var(--line); padding: 56px 0 40px; }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap: 30px; }
+  .footer-brand{ font-family: var(--serif); font-weight:600; font-size: 19px; }
+  .footer-meta{ font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; max-width: 320px; line-height:1.6; }
+  .footer-links{ display:flex; gap: 36px; flex-wrap:wrap; }
+  .footer-col h5{ font-family: var(--mono); font-size: 11px; text-transform:uppercase; letter-spacing:.08em; color: var(--ink-soft); margin-bottom:12px; }
+  .footer-col a{ display:block; font-size: 13.5px; color: var(--ink); text-decoration:none; margin-bottom: 8px; opacity:.8; }
+  .footer-col a:hover{ color: var(--violet); opacity:1; }
+  .footer-bottom{
+    margin-top: 50px; padding-top: 24px; border-top: 1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family: var(--mono); font-size: 11.5px; color: var(--ink-soft);
+  }
+
+  @media (max-width: 640px){
+    section{ padding: 90px 0; }
+    .hero{ padding-top:110px; }
+  }
+</style>
 </head>
-
 <body>
 
-  <div class="hero">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=200&section=header&text=Artificial%20Intelligence&fontSize=32&fontColor=ffffff" width="100%"/>
+<div class="grain"></div>
 
-    <h1>CP020003 — Artificial Intelligence</h1>
-    <p>Khon Kaen University · 2026 Semester 1</p>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">CP</span>
+      CP020003 / ARTIFICIAL INTELLIGENCE
+    </a>
+    <div class="navlinks">
+      <a href="#philosophy">Philosophy</a>
+      <a href="#concepts">Concepts</a>
+      <a href="#attention">Architecture</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#outcomes">Outcomes</a>
+    </div>
+    <a class="nav-cta" href="https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1" target="_blank" rel="noopener">View on GitHub</a>
+  </div>
+</nav>
 
-    <!-- OWNER -->
-    <div class="owner">
-      Course Owner & Instructor: <b>Teerapong Panboonyuen (P'Kao)</b>
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <canvas id="neural-canvas"></canvas>
+  <div class="wrap hero-content">
+    <div class="eyebrow"><span class="dot"></span> CP020003 · Khon Kaen University · 2026</div>
+    <h1>
+      <span class="line"><span>From data to</span></span>
+      <span class="line"><span class="accent-word">intelligence.</span></span>
+    </h1>
+    <p class="hero-sub">
+      A course on Artificial Intelligence built for builders, not spectators — from the first line of Python to the architectures running the frontier models of 2026.
+    </p>
+
+    <div class="hero-meta">
+      <div class="instructor-chip">
+        <div class="instructor-avatar">TP</div>
+        <div>
+          <div class="name">Teerapong Panboonyuen</div>
+          <div class="role">P'Kao · Senior AI Research Scientist</div>
+        </div>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><b>Khon Kaen University</b> · 2026, Semester 1</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">Open &amp; free for the world</div>
     </div>
   </div>
 
-  <div class="badge-row">
-    <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square">
-    <img src="https://img.shields.io/badge/PyTorch-Enabled-red?style=flat-square">
-    <img src="https://img.shields.io/badge/Google%20Colab-Ready-orange?style=flat-square">
-    <img src="https://img.shields.io/badge/AI-Education-green?style=flat-square">
+  <div class="scroll-cue"><div class="line-anim"></div> Scroll to explore</div>
+</header>
+
+<!-- ============ PHILOSOPHY / STACK ============ -->
+<section class="stack-section" id="philosophy">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">01 · The shape of the field</span>
+      <h2>Every layer of AI is built<br>on the one beneath it.</h2>
+      <p>Before you train a single model, you need the map. This course is structured around one idea: intelligence in machines is a nested discipline — and you can't shortcut your way to the center.</p>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-rings reveal">
+        <div class="ring ring-ai"><span>Artificial Intelligence</span></div>
+        <div class="ring ring-ml"><span>Machine Learning</span></div>
+        <div class="ring ring-dl"><span>Deep Learning</span></div>
+        <div class="ring ring-fm"><span>Foundation<br>Models</span></div>
+      </div>
+
+      <div class="stack-copy reveal">
+        <h3>You will move from the outside in.</h3>
+        <div class="stack-list">
+          <div class="stack-item">
+            <span class="swatch" style="background:var(--violet)"></span>
+            <div>
+              <h4>Artificial Intelligence</h4>
+              <p>Any technique that lets a machine act in ways that would require intelligence if a human did it — the widest possible frame.</p>
+            </div>
+          </div>
+          <div class="stack-item">
+            <span class="swatch" style="background:var(--teal)"></span>
+            <div>
+              <h4>Machine Learning</h4>
+              <p>Systems that improve from data instead of being explicitly programmed — the engine inside almost everything we now call "AI."</p>
+            </div>
+          </div>
+          <div class="stack-item">
+            <span class="swatch" style="background:var(--coral)"></span>
+            <div>
+              <h4>Deep Learning</h4>
+              <p>Layered neural networks that learn hierarchical features directly from raw data — pixels, audio, language, code.</p>
+            </div>
+          </div>
+          <div class="stack-item">
+            <span class="swatch" style="background:var(--ink)"></span>
+            <div>
+              <h4>Foundation Models</h4>
+              <p>Transformers trained at internet scale — the GPT, Claude, and Gemini-class systems you will learn to build with and on top of.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCEPT PILLARS ============ -->
+<section class="pillars-section" id="concepts">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">02 · What you will actually learn</span>
+      <h2>Six bodies of knowledge.<br>One way of thinking.</h2>
+      <p>Not a checklist of tools — a set of concepts that compound. Each pillar below is a lens you'll keep using long after the course ends.</p>
+    </div>
+
+    <div class="pillar-grid reveal">
+      <div class="pillar">
+        <div class="pillar-num">PILLAR 01</div>
+        <div class="pillar-icon" style="background:rgba(91,61,245,0.1); color:var(--violet-deep);">◎</div>
+        <h3>Learning Paradigms</h3>
+        <p>Supervised, unsupervised, semi-supervised, self-supervised, and reinforcement learning — five strategies for extracting signal from data, and the judgment to know which one fits a real problem.</p>
+        <div class="pillar-tags"><span>classification</span><span>clustering</span><span>RLHF</span></div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">PILLAR 02</div>
+        <div class="pillar-icon" style="background:rgba(14,165,160,0.1); color:var(--teal);">⬡</div>
+        <h3>Neural Architectures</h3>
+        <p>From the perceptron to the Transformer — how CNNs see, how RNNs remember, and why self-attention became the architecture that scales predictably with data and compute.</p>
+        <div class="pillar-tags"><span>CNN</span><span>RNN</span><span>Transformer</span></div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">PILLAR 03</div>
+        <div class="pillar-icon" style="background:rgba(255,107,91,0.1); color:var(--coral);">✦</div>
+        <h3>Language &amp; Generation</h3>
+        <p>Large language models as reasoning engines: prompting, retrieval-augmented generation, and the gap between a model that completes text and one that follows instructions.</p>
+        <div class="pillar-tags"><span>LLMs</span><span>RAG</span><span>prompting</span></div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">PILLAR 04</div>
+        <div class="pillar-icon" style="background:rgba(232,162,61,0.12); color:var(--gold);">◈</div>
+        <h3>Vision &amp; Perception</h3>
+        <p>Detection, segmentation, and generation — teaching machines to turn pixels into understanding, and understanding back into pixels.</p>
+        <div class="pillar-tags"><span>detection</span><span>segmentation</span><span>diffusion</span></div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">PILLAR 05</div>
+        <div class="pillar-icon" style="background:rgba(91,61,245,0.1); color:var(--violet-deep);">◐</div>
+        <h3>Explainability &amp; Trust</h3>
+        <p>A model you cannot explain is a model you cannot deploy responsibly. SHAP, Grad-CAM, attention maps, and the discipline of making black boxes legible.</p>
+        <div class="pillar-tags"><span>SHAP</span><span>interpretability</span><span>audits</span></div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">PILLAR 06</div>
+        <div class="pillar-icon" style="background:rgba(14,165,160,0.1); color:var(--teal);">◆</div>
+        <h3>Systems &amp; Agents</h3>
+        <p>Where research code becomes a product: evaluation, monitoring, guardrails, and the autonomous agents that plan, call tools, and act on their own.</p>
+        <div class="pillar-tags"><span>MLOps</span><span>guardrails</span><span>agents</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATTENTION / ARCHITECTURE SIGNATURE ============ -->
+<section class="attention-section" id="attention">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">03 · The architecture you'll understand cold</span>
+      <h2>Attention is the idea<br>that changed everything.</h2>
+      <p>One mechanism — every token looking at every other token — now powers translation, code, vision, and reasoning. You will derive it, not just cite it.</p>
+    </div>
+
+    <div class="attn-wrap">
+      <div class="attn-visual reveal">
+        <div class="token-row" id="token-row">
+          <div class="token" data-i="0">The</div>
+          <div class="token" data-i="1">model</div>
+          <div class="token" data-i="2">attends</div>
+          <div class="token" data-i="3">to</div>
+          <div class="token" data-i="4">itself</div>
+        </div>
+        <svg id="attn-svg"></svg>
+        <div class="attn-formula">Attention(Q,K,V) = softmax(QKᵗ / √dₖ) · V</div>
+      </div>
+
+      <div class="attn-copy reveal">
+        <p><b>Self-attention</b> lets every position in a sequence weigh every other position directly — no recurrence, no information bottleneck, just learned relevance.</p>
+        <p><b>Multi-head attention</b> runs that process several times in parallel, each head free to specialize in a different kind of relationship.</p>
+        <p><b>Positional encoding</b> reintroduces order, since attention alone has none — and <b>feed-forward layers</b> hold most of what the model actually "knows."</p>
+        <p>You'll build this from first principles: the math, the intuition, and the reason it parallelizes across GPUs in a way recurrent networks never could.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLKIT MARQUEE ============ -->
+<section class="toolkit-section" id="toolkit">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">04 · The developer's toolkit</span>
+      <h2>You will leave knowing<br>the tools that ship AI.</h2>
+      <p>Concepts without tools stay theoretical. This course pairs every idea with the libraries and platforms used to build real systems today.</p>
+    </div>
   </div>
 
-  <div class="container">
-
-    <div class="section">
-      <h2>Course Vision</h2>
-      <div class="card">
-        Artificial Intelligence is not just about code — it is about building systems that learn, adapt, and assist human thinking.
-        This course invites students to move from curiosity → understanding → creation.
+  <div class="reveal">
+    <div class="marquee-row">
+      <div class="marquee-track">
+        <span class="pill"><b>Python</b> · primary language</span>
+        <span class="pill"><b>PyTorch</b> · research &amp; production</span>
+        <span class="pill"><b>scikit-learn</b> · classical ML</span>
+        <span class="pill"><b>HuggingFace</b> · transformers &amp; diffusers</span>
+        <span class="pill"><b>LangChain</b> · agent orchestration</span>
+        <span class="pill"><b>Google Colab</b> · zero-setup compute</span>
+        <span class="pill"><b>Python</b> · primary language</span>
+        <span class="pill"><b>PyTorch</b> · research &amp; production</span>
+        <span class="pill"><b>scikit-learn</b> · classical ML</span>
+        <span class="pill"><b>HuggingFace</b> · transformers &amp; diffusers</span>
+        <span class="pill"><b>LangChain</b> · agent orchestration</span>
+        <span class="pill"><b>Google Colab</b> · zero-setup compute</span>
       </div>
     </div>
-
-    <div class="section">
-      <h2>What You Will Experience</h2>
-      <div class="grid">
-        <div class="card">Understand how machines learn from data</div>
-        <div class="card">Build real AI models from scratch</div>
-        <div class="card">Explore deep learning and neural networks</div>
-        <div class="card">Work with modern AI tools used in industry</div>
-        <div class="card">Learn how LLMs and AI agents work</div>
-        <div class="card">Develop end-to-end AI thinking</div>
+    <div class="marquee-row reverse">
+      <div class="marquee-track">
+        <span class="pill"><b>Vector databases</b> · Qdrant, Pinecone</span>
+        <span class="pill"><b>FastAPI</b> · serving models</span>
+        <span class="pill"><b>Weights &amp; Biases</b> · experiment tracking</span>
+        <span class="pill"><b>Docker</b> · reproducible deployment</span>
+        <span class="pill"><b>RAGAS</b> · evaluating retrieval</span>
+        <span class="pill"><b>Git</b> · version control</span>
+        <span class="pill"><b>Vector databases</b> · Qdrant, Pinecone</span>
+        <span class="pill"><b>FastAPI</b> · serving models</span>
+        <span class="pill"><b>Weights &amp; Biases</b> · experiment tracking</span>
+        <span class="pill"><b>Docker</b> · reproducible deployment</span>
+        <span class="pill"><b>RAGAS</b> · evaluating retrieval</span>
+        <span class="pill"><b>Git</b> · version control</span>
       </div>
     </div>
-
-    <div class="section">
-      <h2>Learning Philosophy</h2>
-      <div class="card">
-        <ul>
-          <li>Learning by building, not memorizing</li>
-          <li>Understanding ideas behind models</li>
-          <li>Thinking like an AI engineer</li>
-          <li>Experimenting with real data</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Core Technologies</h2>
-      <div class="card">
-        Python · NumPy · Pandas · scikit-learn · PyTorch · Hugging Face · Google Colab · GitHub
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Message to Students</h2>
-      <div class="card">
-        You do not need to be an expert to start AI.<br><br>
-        You only need curiosity, consistency, and willingness to explore unknown problems.<br><br>
-        AI is not the future — it is the present. And you are already part of it.
-      </div>
-
-      <div class="quote">
-        “From data to intelligence — one model at a time.”
-      </div>
-    </div>
-
-    <footer>
-      © 2026 CP020003 Artificial Intelligence · Khon Kaen University<br/>
-      Course Owner: Teerapong Panboonyuen (P'Kao)
-    </footer>
-
   </div>
+</section>
+
+<!-- ============ OUTCOMES ============ -->
+<section class="outcomes-section" id="outcomes">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:50px;">
+      <span class="section-label">05 · What changes by the end</span>
+      <h2>You stop using AI<br>and start building it.</h2>
+    </div>
+
+    <div class="wrap" style="padding:0;">
+      <div class="outcome-list reveal">
+        <div class="outcome-row">
+          <div class="outcome-check">✓</div>
+          <p>You can explain <em>why</em> a model works, not just call an API and hope.</p>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-check">✓</div>
+          <p>You can choose the right paradigm — supervised, self-supervised, or otherwise — for a real, messy problem.</p>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-check">✓</div>
+          <p>You can read a Transformer paper and implement the idea, not just the abstract.</p>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-check">✓</div>
+          <p>You can take a model from a notebook to something other people can actually use.</p>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-check">✓</div>
+          <p>You treat safety, bias, and interpretability as engineering work — not an afterthought.</p>
+        </div>
+      </div>
+
+      <div class="quote-card reveal">
+        <p>"I think people need to understand that deep learning is making a lot of things, behind the scenes, much better."</p>
+        <div class="quote-attr">— Geoffrey Hinton</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="cta-section">
+  <div class="wrap">
+    <h2 class="reveal">Intelligence is built,<br><span class="accent-word">one model at a time.</span></h2>
+    <p class="reveal">CP020003 is free, open, and built for anyone in the world ready to move from curiosity to creation.</p>
+    <div class="cta-buttons reveal">
+      <a class="btn btn-primary" href="https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1" target="_blank" rel="noopener">Explore the course repository →</a>
+      <a class="btn btn-secondary" href="mailto:teerapong.pa@chula.ac.th">Contact the instructor</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">CP020003</div>
+        <div class="footer-meta">Artificial Intelligence · Khon Kaen University, 2026 Semester 1. Open for the world — if you couldn't afford a university AI course, this is for you too.</div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Instructor</h5>
+          <a href="mailto:teerapong.pa@chula.ac.th">teerapong.pa@chula.ac.th</a>
+          <a href="https://kaopanboonyuen.github.io/" target="_blank" rel="noopener">kaopanboonyuen.github.io</a>
+          <a href="https://github.com/kaopanboonyuen" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <div class="footer-col">
+          <h5>Course</h5>
+          <a href="https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1" target="_blank" rel="noopener">Repository ↗</a>
+          <a href="#philosophy">Course philosophy</a>
+          <a href="#concepts">Core concepts</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Teerapong Panboonyuen (P'Kao) · Khon Kaen University</span>
+      <span>Made for the builders of intelligence, everywhere.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- nav scroll state ----------
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  }, { passive:true });
+
+  // ---------- scroll reveal ----------
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // ---------- neural network hero canvas ----------
+  (function(){
+    const canvas = document.getElementById('neural-canvas');
+    const ctx = canvas.getContext('2d');
+    const hero = document.querySelector('.hero');
+    let w, h, nodes = [];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resize(){
+      w = canvas.width = hero.offsetWidth;
+      h = canvas.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const COUNT = window.innerWidth < 700 ? 34 : 60;
+    for(let i=0;i<COUNT;i++){
+      nodes.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        vx: (Math.random()-0.5)*0.22,
+        vy: (Math.random()-0.5)*0.22,
+        r: Math.random()*1.6 + 1.2
+      });
+    }
+
+    let mouse = { x: -9999, y: -9999 };
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+    hero.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+    const colorViolet = '91,61,245';
+    const colorTeal = '14,165,160';
+
+    function step(){
+      ctx.clearRect(0,0,w,h);
+
+      // update positions
+      for(const n of nodes){
+        n.x += n.vx; n.y += n.vy;
+        if(n.x < 0 || n.x > w) n.vx *= -1;
+        if(n.y < 0 || n.y > h) n.vy *= -1;
+
+        // gentle attraction toward mouse
+        const dx = mouse.x - n.x, dy = mouse.y - n.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < 180){
+          n.x += dx * 0.0028;
+          n.y += dy * 0.0028;
+        }
+      }
+
+      // draw connections
+      const maxDist = window.innerWidth < 700 ? 110 : 150;
+      for(let i=0;i<nodes.length;i++){
+        for(let j=i+1;j<nodes.length;j++){
+          const a = nodes[i], b = nodes[j];
+          const dx = a.x-b.x, dy = a.y-b.y;
+          const dist = Math.sqrt(dx*dx+dy*dy);
+          if(dist < maxDist){
+            const alpha = (1 - dist/maxDist) * 0.16;
+            ctx.strokeStyle = `rgba(${colorViolet},${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+        // connection to mouse
+        const dxm = nodes[i].x - mouse.x, dym = nodes[i].y - mouse.y;
+        const dm = Math.sqrt(dxm*dxm + dym*dym);
+        if(dm < 170){
+          const alpha = (1 - dm/170) * 0.4;
+          ctx.strokeStyle = `rgba(${colorTeal},${alpha})`;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+        }
+      }
+
+      // draw nodes
+      for(const n of nodes){
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(${colorViolet},0.45)`;
+        ctx.fill();
+      }
+
+      if(!reduceMotion) requestAnimationFrame(step);
+    }
+    step();
+  })();
+
+  // ---------- attention diagram: animated token connections ----------
+  (function(){
+    const svg = document.getElementById('attn-svg');
+    const row = document.getElementById('token-row');
+    const tokens = Array.from(row.querySelectorAll('.token'));
+    const NS = 'http://www.w3.org/2000/svg';
+    let active = 0;
+
+    function getCenters(){
+      const rowRect = row.getBoundingClientRect();
+      const parentRect = row.parentElement.getBoundingClientRect();
+      return tokens.map(t => {
+        const r = t.getBoundingClientRect();
+        return {
+          x: r.left - parentRect.left + r.width/2,
+          y: r.top - parentRect.top + r.height/2
+        };
+      });
+    }
+
+    function draw(){
+      svg.innerHTML = '';
+      const centers = getCenters();
+      const from = centers[active];
+      centers.forEach((c, idx) => {
+        if(idx === active) return;
+        const weight = 0.25 + Math.random()*0.55;
+        const path = document.createElementNS(NS, 'path');
+        const midY = from.y + (c.y - from.y) * 0.55 + 60;
+        const d = `M ${from.x} ${from.y} Q ${(from.x+c.x)/2} ${midY}, ${c.x} ${c.y}`;
+        path.setAttribute('d', d);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', `rgba(91,61,245,${weight*0.5})`);
+        path.setAttribute('stroke-width', (weight*2.2).toFixed(2));
+        svg.appendChild(path);
+      });
+    }
+
+    function cycle(){
+      tokens.forEach(t => t.classList.remove('active'));
+      tokens[active].classList.add('active');
+      draw();
+      active = (active + 1) % tokens.length;
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(draw, 120);
+    });
+
+    cycle();
+    setInterval(cycle, 1700);
+  })();
+</script>
 
 </body>
 </html>
