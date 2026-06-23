@@ -20,7 +20,7 @@
 ║                                                                          ║
 ║    🤖  CP020003 · Artificial Intelligence · 2026 S1                      ║
 ║    🏫  Khon Kaen University                                              ║
-║    👨‍🏫  Teerapong Panboonyuen (P'Kao)                                     ║
+║    🌱  Teerapong Panboonyuen (P'Kao)                                     ║
 ║    📧  teerapong.pa@chula.ac.th                                          ║
 ║                                                                          ║
 ║    "From data to intelligence — one model at a time."                    ║
@@ -32,7 +32,7 @@
 
 ---
 
-## 👨‍🏫 About the Instructor
+## 🌱 About the Instructor
 
 <table>
 <tr>
@@ -89,34 +89,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 | Resource | Link |
 |:---|:---|
-| 🧠 Lecture Slide | [lecture_1_intro_ai.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_1_intro_ai.pdf) |
-| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week1_InClass.ipynb) |
-| 📄 Lab Instructions | [AI-Homework-Assignment-Week-1.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-1.pdf) |
-| 📂 Dataset | [heart_kku_version.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/heart_kku_version.csv) |
-
-> 💡 *Task*: Load the Heart Disease dataset with `pandas`. Explore distributions, handle missing values, engineer features, and answer analytical questions using real patient data.
-
-<details>
-<summary>📖 Dataset Dictionary — Heart Disease (KKU Version)</summary>
-
-| Column | Description |
-|:---|:---|
-| `age` | Age of the patient |
-| `sex` | Sex (1 = male, 0 = female) |
-| `cp` | Chest pain type (0–3) |
-| `trestbps` | Resting blood pressure (mm Hg) |
-| `chol` | Serum cholesterol (mg/dl) |
-| `fbs` | Fasting blood sugar > 120 mg/dl (1 = true) |
-| `restecg` | Resting ECG results (0, 1, 2) |
-| `thalach` | Maximum heart rate achieved |
-| `exang` | Exercise-induced angina (1 = yes) |
-| `oldpeak` | ST depression (exercise vs rest) |
-| `slope` | Slope of peak exercise ST segment |
-| `ca` | Number of major vessels (0–3, fluoroscopy) |
-| `thal` | Thalassemia (0 = normal, 1 = fixed, 2 = reversable) |
-| `target` | Heart disease (1 = yes, 0 = no) |
-
-</details>
+| 🧠 Lecture Slide | [lecture_1_intro_ai.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_1_intro_ai.pdf)
 
 ---
 
@@ -146,12 +119,16 @@ This course is inspired by **CS231n**, the **Hugging Face** open-source communit
 ---
 
 ```
-╔════════════════════════════════════════════════════╗
-║                                                    ║
-║   Made with ❤️ for the next generation of          ║
-║   Thai AI innovators 🇹🇭 — and the world 🌍         ║
-║                                                    ║
-╚════════════════════════════════════════════════════╝
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║   Made for everyone, everywhere — not just for one place   ║
+║                                                            ║
+║   For the builders of intelligence, the learners of data,  ║
+║   and those shaping the future of AI systems.              ║
+║                                                            ║
+║   From curiosity to creation — one model at a time.        ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
 ```
 
 [![Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
