@@ -118,6 +118,26 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
+## 📅 Week 2 — Self-Study & Assignment Completion
+
+> 🎯 **Goal**: Complete all Week 1 assignments and strengthen your Python, Pandas, and data analysis skills.
+
+### 📢 Announcement
+
+There will be **no class this week** because the instructor will be organizing the **BDI-KKU Hackathon**.
+
+### ✅ Tasks
+
+Please complete all **Week 1 assignments**:
+
+* **Part 1:** Python Fundamentals
+* **Part 2:** Pandas Data Analysis
+* **Part 3:** Main Assignment — Complete the **Heart Disease (KKU Version)** homework, answering all 10 questions using **Python, Pandas, and NumPy**. *(Bonus: Apply a Machine Learning classifier and report the evaluation metrics.)*
+
+> 💡 Finishing these assignments will prepare you for the Machine Learning topics starting next week.
+
+---
+
 ## 📚 References & Credits
 
 | Resource | Link |
