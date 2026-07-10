@@ -118,23 +118,75 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
-## 📅 Week 2 — Self-Study & Assignment Completion
+### 📅 Week 2 — Feature Engineering + Spotify Dataset
 
-> 🎯 **Goal**: Complete all Week 1 assignments and strengthen your Python, Pandas, and data analysis skills.
+> 🎯 **Goal**: Learn how to transform raw data into meaningful features using real-world datasets. Explore traditional feature engineering, AI-assisted feature engineering, and prepare for modern Machine Learning and AI Hackathons.
 
-### 📢 Announcement
+#### 🛠️ In-Class Lab: Spotify Music Dataset
 
-There will be **no class this week** because the instructor will be organizing the **BDI-KKU Hackathon**.
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [lecture_2_feature_engineering_spotify.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_2_feature_engineering_spotify.pdf) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week2_InClass.ipynb) |
+| 📂 Dataset | [spotify-kku-dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/spotify-kku-dataset.csv) |
 
-### ✅ Tasks
+> 💡 **Lab Topics**
+>
+> - Load and inspect a real-world Spotify dataset using **Pandas**
+> - Perform data cleaning and exploratory data analysis (EDA)
+> - Create new features from existing attributes
+> - Understand the difference between **raw features** and **engineered features**
+> - Practice categorical, numerical, ranking, aggregation, and domain-specific feature engineering
+> - Prepare datasets for Machine Learning models
 
-Please complete all **Week 1 assignments**:
+<details>
+<summary>📖 Dataset Dictionary — Spotify Music Dataset</summary>
 
-* **Part 1:** Python Fundamentals
-* **Part 2:** Pandas Data Analysis
-* **Part 3:** Main Assignment — Complete the **Heart Disease (KKU Version)** homework, answering all 10 questions using **Python, Pandas, and NumPy**. *(Bonus: Apply a Machine Learning classifier and report the evaluation metrics.)*
+| Column | Description |
+|:---|:---|
+| `track_id` | Unique Spotify track identifier |
+| `artists` | Artist(s) performing the song |
+| `album_name` | Album name |
+| `track_name` | Song title |
+| `popularity` | Spotify popularity score (0–100) |
+| `duration_ms` | Song duration in milliseconds |
+| `explicit` | Whether the song contains explicit lyrics |
+| `danceability` | How suitable the song is for dancing (0–1) |
+| `energy` | Perceived intensity and activity level (0–1) |
+| `key` | Estimated musical key (0–11) |
+| `loudness` | Average loudness (dB) |
+| `mode` | Musical mode (1 = Major, 0 = Minor) |
+| `speechiness` | Presence of spoken words (0–1) |
+| `acousticness` | Confidence that the track is acoustic (0–1) |
+| `instrumentalness` | Probability that the track contains no vocals (0–1) |
+| `liveness` | Probability that the recording is performed live (0–1) |
+| `valence` | Musical positiveness or happiness (0–1) |
+| `tempo` | Estimated tempo (beats per minute) |
+| `time_signature` | Number of beats per measure |
+| `track_genre` | Music genre (e.g., Pop, Rock, Jazz, Hip-Hop) |
 
-> 💡 Finishing these assignments will prepare you for the Machine Learning topics starting next week.
+</details>
+
+---
+
+### 📝 Homework Assignment — Netflix Dataset
+
+> 🎯 **Goal**: Apply feature engineering techniques independently on a real-world streaming platform dataset and prepare features suitable for Machine Learning applications.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-2.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-2.pdf) |
+| 📂 Dataset | [netflix-kku-dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/netflix-kku-dataset.csv) |
+
+> 💡 **Homework Tasks**
+>
+> - Explore and understand the Netflix dataset
+> - Clean missing and inconsistent data
+> - Engineer meaningful features from raw metadata
+> - Create numerical, categorical, and text-based features
+> - Visualize important insights
+> - Explain how your engineered features could improve Machine Learning performance
+> - Think like a Data Scientist: *Which features would you create if you were building Netflix's recommendation system?*
 
 ---
 
