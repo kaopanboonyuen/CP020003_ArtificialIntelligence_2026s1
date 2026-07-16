@@ -190,6 +190,54 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
+### 📅 Week 3 — Supervised Learning + Spotify & Netflix Datasets
+
+> 🎯 **Goal**: Learn the full supervised learning workflow — from encoding and splitting data, to training classical ML models and a first deep learning model, to properly evaluating and comparing results.
+
+#### 🛠️ In-Class Lab: Supervised Learning on the Spotify Dataset
+
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [lecture_3_supervised_learning.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_3_supervised_learning.pdf) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week3_InClass.ipynb) |
+| 📂 Dataset | [spotify-kku-dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/spotify-kku-dataset.csv) *(same dataset as Week 2 — see data dictionary there)* |
+
+> 💡 **Lab Topics**
+>
+> - Recap: feature engineering, plus a modern AI-powered feature using **Hugging Face zero-shot classification**
+> - Convert strings to vectors: **One-Hot Encoding** vs **Label/Ordinal Encoding**, and when to use each
+> - Perform a proper **stratified train/test split**
+> - Train and compare classical ML models: **Decision Tree, Random Forest, XGBoost, Logistic Regression, SVM**
+> - Get an intro to **Deep Learning**: what convolution is, and how a CNN learns features automatically
+> - Compare **manual feature engineering (ML)** vs **automatic feature learning (DL)**
+> - Evaluate models with **Accuracy, Precision, Recall, F1, ROC-AUC**, and the **Confusion Matrix** (TP/FP/FN/TN)
+> - Discuss real-world trade-offs: when a **False Positive** matters more than a **False Negative** (and vice versa)
+> - Perform **error analysis** to understand *why* a model makes mistakes
+
+---
+
+### 📝 Homework Assignment — Netflix Dataset
+
+> 🎯 **Goal**: Build a complete, end-to-end supervised learning pipeline independently — choose a target variable, engineer and encode features, train multiple models, and evaluate them like a real Data Scientist would.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-3.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-3.pdf) |
+| 📂 Dataset | [netflix-kku-dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/netflix-kku-dataset.csv) *(same dataset as Week 2 — see data dictionary there)* |
+
+> 💡 **Homework Tasks**
+>
+> - Choose a target variable (e.g. predict `type`: Movie vs TV Show) and justify your choice
+> - Engineer and encode features, choosing One-Hot vs Label encoding appropriately
+> - Perform a stratified train/test split
+> - Train and compare **at least 5 models** — a mix of classical ML and deep learning
+> - Evaluate with Accuracy, Precision, Recall, F1, ROC-AUC, and a Confusion Matrix
+> - Discuss which error (False Positive vs False Negative) matters more for your problem, and why
+> - Perform error analysis on misclassified examples
+> - **Bonus**: use an ML model or DL architecture we didn't cover in class, or bring in NLP on the `description` column
+
+---
+
 ## 📚 References & Credits
 
 | Resource | Link |
