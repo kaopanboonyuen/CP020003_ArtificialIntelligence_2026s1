@@ -238,57 +238,42 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
-### 📅 Week 4 — DNA Classification + Biological Sequence Analysis
+### 📅 Week 4 — DNA Classification + Supervised Learning
 
-> 🎯 **Goal**: Learn how modern AI can understand biological sequences using supervised learning. Explore DNA feature engineering, train both classical Machine Learning and Deep Learning models, and discover how AI is transforming genomics and precision medicine.
+> 🎯 **Goal**: Learn how AI classifies biological DNA sequences using feature engineering, classical Machine Learning, and Deep Learning.
 
-#### 🛠️ In-Class Lab: DNA Sequence Classification
+#### 🛠️ In-Class Lab: DNA Classification
 
 | Resource | Link |
 |:---|:---|
 | 🧠 Lecture Slide | [lecture_4_dna_classification.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_4_dna_classification.pdf) |
 | 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week4_InClass.ipynb) |
 | 📄 Lab Instructions | [AI-Homework-Assignment-Week-4.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-4.pdf) |
-| 📂 Dataset | `synthetic_dna_classification.csv` *(provided in class)* |
+| 📂 Dataset | [dna-synthetic.zip](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/dna-synthetic.zip) |
 
 > 💡 **Lab Topics**
 >
-> - Understand DNA sequences as machine learning data
-> - Perform exploratory data analysis (EDA) on genomic datasets
-> - Engineer biologically meaningful features from raw DNA sequences
-> - Calculate **GC Content**, **AT Content**, nucleotide counts, and sequence statistics
-> - Generate **k-mer frequency** features for sequence representation
-> - Encode DNA sequences for Deep Learning models
-> - Train and compare classical ML models:
->   - Decision Tree
->   - Random Forest
->   - XGBoost
-> - Build Deep Learning models using **PyTorch**
->   - 1D CNN
->   - LSTM
->   - GRU
-> - Compare handcrafted biological features versus automatic feature learning
-> - Evaluate models using Accuracy, Precision, Recall, F1 Score, ROC-AUC, and Confusion Matrix
-> - Perform biological error analysis and interpret model predictions
+> - Explore DNA sequence data using Pandas
+> - Engineer biological features (GC Content, nucleotide counts, k-mers)
+> - Train Decision Tree, Random Forest, and XGBoost
+> - Build CNN, LSTM, and GRU models with PyTorch
+> - Compare classical ML vs Deep Learning
+> - Evaluate using Accuracy, Precision, Recall, F1 Score, and Confusion Matrix
 
 <details>
-<summary>🧬 Dataset Dictionary — DNA Classification Dataset</summary>
+<summary>🧬 Dataset Dictionary — DNA Classification</summary>
 
 | Column | Description |
 |:---|:---|
-| `Sample_ID` | Unique DNA sample identifier |
-| `Sequence` | Raw DNA sequence consisting of A, T, C, and G nucleotides |
-| `GC_Content` | Percentage of G and C nucleotides |
-| `AT_Content` | Percentage of A and T nucleotides |
-| `Sequence_Length` | Total sequence length |
-| `Num_A` | Number of Adenine (A) bases |
-| `Num_T` | Number of Thymine (T) bases |
-| `Num_C` | Number of Cytosine (C) bases |
-| `Num_G` | Number of Guanine (G) bases |
-| `kmer_3_freq` | Example 3-mer frequency feature extracted from the sequence |
-| `Mutation_Flag` | Indicates whether a mutation is present (0 = No, 1 = Yes) |
-| `Class_Label` | DNA origin class (Human, Bacteria, Virus, Plant) |
-| `Disease_Risk` | Disease risk category (Low, Medium, High) |
+| `Sequence` | DNA sequence |
+| `GC_Content` | GC percentage |
+| `AT_Content` | AT percentage |
+| `Sequence_Length` | DNA length |
+| `Num_A`, `Num_T`, `Num_C`, `Num_G` | Nucleotide counts |
+| `kmer_3_freq` | 3-mer frequency feature |
+| `Mutation_Flag` | Mutation indicator |
+| `Class_Label` | Human / Bacteria / Virus / Plant |
+| `Disease_Risk` | Low / Medium / High |
 
 </details>
 
@@ -296,7 +281,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ### 📝 Homework Assignment — DNA Methylation Prediction
 
-> 🎯 **Goal**: Apply the complete supervised learning pipeline to a real epigenetics dataset. Predict DNA methylation levels using genomic context, engineered biological features, and Deep Learning models trained directly on DNA sequences.
+> 🎯 **Goal**: Apply the complete supervised learning workflow to a real DNA methylation dataset and predict methylation levels from genomic sequences.
 
 | Resource | Link |
 |:---|:---|
@@ -305,48 +290,28 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Homework Tasks**
 >
-> - Explore a real DNA methylation dataset and perform EDA
-> - Handle missing biological annotations appropriately
-> - Engineer genomic features including:
->   - GC Content
->   - Sequence Length
->   - k-mer Frequencies
->   - Purine/Pyrimidine Ratio
->   - GC Skew
-> - Encode genomic annotation features using suitable encoding techniques
-> - Create a supervised learning pipeline for predicting methylation levels
-> - Train and compare **at least five models**, including:
->   - Classical Machine Learning models
->   - PyTorch Deep Learning models (CNN, LSTM, or GRU)
-> - Evaluate using Accuracy, Precision, Recall, Macro F1 Score, and Confusion Matrix
-> - Compare against a majority-class baseline
-> - Perform biological error analysis on difficult genomic regions
-> - Discuss which prediction errors are most critical in real biological applications
-> - Recommend the best model for DNA methylation prediction and justify your decision
->
-> 🌟 **Bonus Challenges**
->
-> - Train an additional model not covered in class (e.g., LightGBM, CatBoost, k-NN)
-> - Build a CNN + BiLSTM hybrid architecture
-> - Engineer novel biological sequence features beyond those introduced in class
-> - Predict continuous **Beta values** (regression) and compare with classification performance
-> - Compete for the **Top 3 Highest F1 Score Award** and earn bonus course credit!
+> - Perform EDA and data cleaning
+> - Engineer biological sequence features
+> - Encode genomic annotations
+> - Train at least **5 ML/DL models**
+> - Evaluate with Accuracy, Precision, Recall, F1, and Confusion Matrix
+> - Perform error analysis and discuss biological significance
+> - **Bonus:** Try LightGBM/CatBoost or predict continuous Beta values
 
 <details>
-<summary>🧬 Dataset Dictionary — DNA Methylation Dataset</summary>
+<summary>🧬 Dataset Dictionary — DNA Methylation</summary>
 
 | Column | Description |
 |:---|:---|
-| `Id` | Unique CpG probe identifier |
-| `CHR` | Chromosome containing the CpG site |
-| `MAPINFO` | Genomic coordinate on the chromosome |
-| `UCSC_CpG_Islands_Name` | CpG island genomic region |
-| `UCSC_RefGene_Group` | Relative position to nearby genes (TSS, Body, UTR, etc.) |
-| `Relation_to_UCSC_CpG_Island` | Position relative to CpG islands (Island, Shore, Shelf, Open Sea) |
-| `Regulatory_Feature_Group` | Regulatory genomic annotation |
-| `Forward_Sequence` | Local DNA sequence centered around the CpG site |
-| `seq` | Long genomic DNA sequence surrounding the CpG site |
-| `Beta` | DNA methylation level (target variable; 0 = unmethylated, 1 = fully methylated) |
+| `Id` | CpG probe ID |
+| `CHR` | Chromosome |
+| `MAPINFO` | Genomic position |
+| `UCSC_RefGene_Group` | Gene annotation |
+| `Relation_to_UCSC_CpG_Island` | CpG island relation |
+| `Regulatory_Feature_Group` | Regulatory annotation |
+| `Forward_Sequence` | Local DNA sequence |
+| `seq` | Long DNA sequence |
+| `Beta` | DNA methylation level (target) |
 
 </details>
 
