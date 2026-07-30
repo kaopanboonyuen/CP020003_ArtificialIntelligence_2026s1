@@ -3,7 +3,7 @@
 <!-- HEADER BANNER -->
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=200&section=header&text=CP020003%20%E2%80%94%20Artificial%20Intelligence&fontSize=32&fontColor=ffffff&fontAlignY=40&desc=Khon%20Kaen%20University%20%C2%B7%202026%20Semester%201&descSize=16&descAlignY=62&animation=fadeIn" width="100%"/>
 
-<!-- BADGES -->
+<!-- BADGES
 <p>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge&logo=apache" alt="License" />
@@ -23,7 +23,7 @@
   <a href="https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1">
     <img src="https://img.shields.io/github/stars/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1?style=for-the-badge&logo=github&color=FFD700" alt="GitHub Stars" />
   </a>
-</p>
+</p> -->
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════╗
