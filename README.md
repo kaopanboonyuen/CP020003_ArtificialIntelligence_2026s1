@@ -295,7 +295,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Lab Topics**
 >
-> - Understand why unsupervised learning is the right approach when no ground-truth labels exist, and how it differs from supervised learning. Explore transactional retail data, engineer customer-level RFM and behavioral features, apply scaling and PCA to address distance-related challenges, evaluate clustering quality with key metrics, and understand the algorithms and use cases of K-Means, DBSCAN, Hierarchical Clustering, Gaussian Mixture Models, and deep-learning-based clustering. Most importantly, translate clusters into meaningful business personas and actionable strategies with measurable profit impact.
+> - Use unsupervised learning to cluster customers and transform data into meaningful business strategies. ✨
 
 ---
 
@@ -310,7 +310,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Homework Tasks**
 >
-> - Clean and explore the retail data, build a true customer-level RFM feature set with at least two additional behavioral features, apply scaling and PCA with explanations and visualizations, choose and justify one clustering approach (K-Means, DBSCAN, or deep learning), optimize and validate the model using appropriate metrics, then interpret each cluster with meaningful personas, real business insights, and quantified profit-maximizing actions. Conclude with the most valuable and highest-risk customer groups and recommend the best targeting strategy. Bonus: compare alternative clustering methods, build loyalty/churn scores, run what-if profit analysis, or develop an autoencoder-based clustering pipeline.
+> - Clean retail data, build RFM and behavioral features, apply clustering with proper evaluation, interpret customer personas, and recommend data-driven business strategies with measurable impact.
 
 <details>
 <summary>🛍️ Dataset Dictionary — Retail Insights (Homework)</summary>
