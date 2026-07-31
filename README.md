@@ -306,7 +306,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 | Resource | Link |
 |:---|:---|
 | 📄 Assignment | [AI-Homework-Assignment-Week-5.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-5.pdf) |
-| 📂 Dataset | [retail_insights_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_insights_dataset.csv) *(5,000 order-line records, 789 unique customers — see data dictionary below)* |
+| 📂 Dataset | [retail_insights_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_insights_dataset.csv) |
 
 > 💡 **Homework Tasks**
 >
