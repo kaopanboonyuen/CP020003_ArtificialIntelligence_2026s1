@@ -317,6 +317,83 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
+### 📅 Week 5 — Unsupervised Learning + Retail Customer Segmentation
+
+> 🎯 **Goal**: Learn the full unsupervised learning workflow — from EDA and RFM-style feature engineering, to scaling, PCA, and the Curse of Dimensionality, to clustering with K-Means and DBSCAN, to validating results and translating cluster numbers into profit-driving business personas.
+
+#### 🛠️ In-Class Lab: Unsupervised Learning on the Retail Sales Dataset
+
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [lecture_5_unsupervised_learning.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_5_unsupervised_learning.pdf) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week5_InClass.ipynb) |
+| 📂 Dataset | [retail_sales_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_sales_dataset.csv) *(1,000 retail transactions across Beauty, Clothing & Electronics)* |
+
+> 💡 **Lab Topics**
+>
+> - Why **Unsupervised Learning** is the right tool when there's no ground-truth label — and how it differs from Weeks 1–4
+> - Perform proper **EDA** on transactional retail data and spot trends before modeling anything
+> - Engineer customer-level behavioral features (an **RFM-style feature set**: Recency, Frequency, Monetary) from raw transactions
+> - Explain **why Feature Scaling (StandardScaler)** is not optional for distance-based clustering
+> - Explain and **measure the Curse of Dimensionality** — why distance stops being meaningful in high dimensions
+> - Use **PCA** both to fight the curse of dimensionality and to visualize clusters in 2D
+> - Choose the right **K** using the Elbow Method, Silhouette Score, Davies–Bouldin Index, and Calinski–Harabasz Index
+> - Understand **K-Means** at the algorithm level — including **Random Init vs. K-Means++**
+> - Understand **DBSCAN** at the algorithm level — including `eps` and `min_samples`, and *why* it can succeed exactly where K-Means fails
+> - Know **when** to reach for K-Means, DBSCAN, or a **deep-learning-based** clustering approach (autoencoder + clustering)
+> - Meet two more essential unsupervised tools: **Hierarchical Clustering** and **Gaussian Mixture Models**
+> - Most importantly: turn cluster numbers into **business personas** and concrete, profit-driving **actions** (with a full win-back campaign revenue estimate)
+
+---
+
+### 📝 Homework Assignment — Retail Insights Dataset (True RFM)
+
+> 🎯 **Goal**: Apply the full unsupervised learning workflow independently on a real, order-level dataset with genuine repeat customers — build a true RFM feature set, choose and justify one clustering approach, validate it, and translate every cluster into a numbers-backed business persona and profit-maximizing action.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-5.docx](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-5.docx) |
+| 📂 Dataset | [retail_insights_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_insights_dataset.csv) *(5,000 order-line records, 789 unique customers — see data dictionary below)* |
+
+> 💡 **Homework Tasks**
+>
+> - Clean the currency columns, parse dates, handle the 2 missing values, and explore Order Total, Customer Type, Product Category, and Order Priority
+> - Aggregate order-lines to the **customer level** and build a **true RFM feature set** (Recency, Frequency, Monetary) — real repeat customers finally make this possible
+> - Add **at least 2 more behavioral features** of your own choosing (e.g. avg. discount %, avg. profit margin, dominant category, % Critical/High-priority orders)
+> - Apply **StandardScaler** and explain in your own words why scaling isn't optional for K-Means/DBSCAN
+> - Apply **PCA**, report explained variance, and visualize a 2D projection before and after clustering
+> - Choose **ONE** clustering approach — K-Means, DBSCAN, or a deep-learning-based approach — and **justify the choice** using the Decision Guide criteria from class
+> - Select K with at least 2 of the 4 metrics (or tune `eps`/`min_samples` with a k-distance plot if using DBSCAN)
+> - Validate with **Silhouette Score** at minimum (Davies-Bouldin / Calinski-Harabasz / noise % where relevant)
+> - **Business Interpretation (heaviest-weighted step)** — profile every cluster with real numbers and give each one a clear, memorable persona name
+> - Recommend **at least one concrete, profit-maximizing action per cluster**, with a quantified, clearly-labeled revenue estimate — exactly like the in-class win-back campaign
+> - Conclude: which cluster is most valuable, which is most at-risk of churning, and which one you'd target first with a limited budget
+> - **Bonus**: try an algorithm not covered hands-on in class (Spectral Clustering, HDBSCAN, Mean Shift, GMM), compare two approaches side by side, build a loyalty/churn-risk score, quantify what-if profit for 2+ clusters, or build the autoencoder + clustering pipeline as an alternative model
+
+<details>
+<summary>🛍️ Dataset Dictionary — Retail Insights (Homework)</summary>
+
+| Column | Description |
+|:---|:---|
+| `Order No` | Unique order-line identifier, e.g. `4293-1` |
+| `Order Date` | Date the order was placed (`DD-MM-YYYY`) |
+| `Customer Name` | Customer who placed the order — repeats across rows (789 unique customers / 5,000 order lines) |
+| `Address` / `City` / `State` | Delivery location — Sydney, NSW or Melbourne, VIC |
+| `Customer Type` | Consumer / Corporate / Home Office / Small Business |
+| `Account Manager` | Staff member managing the account |
+| `Order Priority` | Critical / High / Medium / Low / Not Specified |
+| `Product Name` / `Product Category` / `Product Container` | What was purchased — category is Office Supplies, Technology, or Furniture |
+| `Ship Mode` / `Ship Date` | How and when the order shipped |
+| `Cost Price` / `Retail Price` / `Profit Margin` | Unit-level currency strings (e.g. `"$156.50"`) — strip `$` and commas before converting to float |
+| `Order Quantity` | Units in this order line |
+| `Sub Total` / `Discount %` / `Discount $` / `Order Total` / `Shipping Cost` / `Total` | Full pricing breakdown, also stored as currency/percent strings — `Order Total`/`Total` is the natural Monetary feature |
+
+> ⚠️ **Grading emphasis**: most marks are earned in the *business interpretation* steps — a clear, numbers-backed persona and action per cluster beats a technically perfect pipeline with generic descriptions. The clearest, best-explained submission earns **+1% extra credit**.
+
+</details>
+
+---
+
 ## 📚 References & Credits
 
 | Resource | Link |
