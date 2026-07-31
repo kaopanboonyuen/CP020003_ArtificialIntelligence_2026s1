@@ -132,12 +132,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Lab Topics**
 >
-> - Load and inspect a real-world Spotify dataset using **Pandas**
-> - Perform data cleaning and exploratory data analysis (EDA)
-> - Create new features from existing attributes
-> - Understand the difference between **raw features** and **engineered features**
-> - Practice categorical, numerical, ranking, aggregation, and domain-specific feature engineering
-> - Prepare datasets for Machine Learning models
+> - Explore and preprocess a real-world Spotify dataset, perform EDA, engineer meaningful features across different types, understand raw vs. engineered features, and prepare data for Machine Learning models.
 
 <details>
 <summary>📖 Dataset Dictionary — Spotify Music Dataset</summary>
@@ -180,13 +175,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Homework Tasks**
 >
-> - Explore and understand the Netflix dataset
-> - Clean missing and inconsistent data
-> - Engineer meaningful features from raw metadata
-> - Create numerical, categorical, and text-based features
-> - Visualize important insights
-> - Explain how your engineered features could improve Machine Learning performance
-> - Think like a Data Scientist: *Which features would you create if you were building Netflix's recommendation system?*
+> - Explore and clean the Netflix dataset, engineer meaningful numerical, categorical, and text features, visualize key insights, and explain how feature engineering can improve ML performance while thinking like a data scientist building a recommendation system.
 
 ---
 
@@ -204,15 +193,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Lab Topics**
 >
-> - Recap: feature engineering, plus a modern AI-powered feature using **Hugging Face zero-shot classification**
-> - Convert strings to vectors: **One-Hot Encoding** vs **Label/Ordinal Encoding**, and when to use each
-> - Perform a proper **stratified train/test split**
-> - Train and compare classical ML models: **Decision Tree, Random Forest, XGBoost, Logistic Regression, SVM**
-> - Get an intro to **Deep Learning**: what convolution is, and how a CNN learns features automatically
-> - Compare **manual feature engineering (ML)** vs **automatic feature learning (DL)**
-> - Evaluate models with **Accuracy, Precision, Recall, F1, ROC-AUC**, and the **Confusion Matrix** (TP/FP/FN/TN)
-> - Discuss real-world trade-offs: when a **False Positive** matters more than a **False Negative** (and vice versa)
-> - Perform **error analysis** to understand *why* a model makes mistakes
+> - Review feature engineering and explore AI-powered features with zero-shot classification, covering encoding methods, stratified data splitting, classical ML and deep learning models, feature engineering vs automatic feature learning, model evaluation with key metrics, and error analysis with real-world trade-offs.
 
 ---
 
@@ -227,14 +208,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Homework Tasks**
 >
-> - Choose a target variable (e.g. predict `type`: Movie vs TV Show) and justify your choice
-> - Engineer and encode features, choosing One-Hot vs Label encoding appropriately
-> - Perform a stratified train/test split
-> - Train and compare **at least 5 models** — a mix of classical ML and deep learning
-> - Evaluate with Accuracy, Precision, Recall, F1, ROC-AUC, and a Confusion Matrix
-> - Discuss which error (False Positive vs False Negative) matters more for your problem, and why
-> - Perform error analysis on misclassified examples
-> - **Bonus**: use an ML model or DL architecture we didn't cover in class, or bring in NLP on the `description` column
+> - Define and justify a prediction target, engineer and encode features, train and compare multiple ML and deep learning models, evaluate performance with classification metrics, analyze errors and their real-world impact, and explore advanced approaches such as new models or NLP-based features.
 
 ---
 
@@ -253,12 +227,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Lab Topics**
 >
-> - Explore DNA sequence data using Pandas
-> - Engineer biological features (GC Content, nucleotide counts, k-mers)
-> - Train Decision Tree, Random Forest, and XGBoost
-> - Build CNN, LSTM, and GRU models with PyTorch
-> - Compare classical ML vs Deep Learning
-> - Evaluate using Accuracy, Precision, Recall, F1 Score, and Confusion Matrix
+> - Explore and engineer DNA sequence features, train classical ML and deep learning models (Decision Tree, Random Forest, XGBoost, CNN, LSTM, and GRU), compare approaches, and evaluate performance using key classification metrics.
 
 <details>
 <summary>🧬 Dataset Dictionary — DNA Classification</summary>
@@ -290,13 +259,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Homework Tasks**
 >
-> - Perform EDA and data cleaning
-> - Engineer biological sequence features
-> - Encode genomic annotations
-> - Train at least **5 ML/DL models**
-> - Evaluate with Accuracy, Precision, Recall, F1, and Confusion Matrix
-> - Perform error analysis and discuss biological significance
-> - **Bonus:** Try LightGBM/CatBoost or predict continuous Beta values
+> - Perform biological data preprocessing, feature engineering, ML/DL modeling, evaluation, and biological interpretation, with bonus exploration of advanced models or continuous Beta prediction.
 
 <details>
 <summary>🧬 Dataset Dictionary — DNA Methylation</summary>
@@ -327,22 +290,12 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 |:---|:---|
 | 🧠 Lecture Slide | [lecture_5_unsupervised_learning.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_5_unsupervised_learning.pdf) |
 | 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week5_InClass.ipynb) |
-| 📂 Dataset | [retail_sales_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_sales_dataset.csv) *(1,000 retail transactions across Beauty, Clothing & Electronics)* |
+| 📄 Lab Instructions | [AI-Homework-Assignment-Week-5.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-5.pdf) |
+| 📂 Dataset | [retail_sales_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_sales_dataset.csv) |
 
 > 💡 **Lab Topics**
 >
-> - Why **Unsupervised Learning** is the right tool when there's no ground-truth label — and how it differs from Weeks 1–4
-> - Perform proper **EDA** on transactional retail data and spot trends before modeling anything
-> - Engineer customer-level behavioral features (an **RFM-style feature set**: Recency, Frequency, Monetary) from raw transactions
-> - Explain **why Feature Scaling (StandardScaler)** is not optional for distance-based clustering
-> - Explain and **measure the Curse of Dimensionality** — why distance stops being meaningful in high dimensions
-> - Use **PCA** both to fight the curse of dimensionality and to visualize clusters in 2D
-> - Choose the right **K** using the Elbow Method, Silhouette Score, Davies–Bouldin Index, and Calinski–Harabasz Index
-> - Understand **K-Means** at the algorithm level — including **Random Init vs. K-Means++**
-> - Understand **DBSCAN** at the algorithm level — including `eps` and `min_samples`, and *why* it can succeed exactly where K-Means fails
-> - Know **when** to reach for K-Means, DBSCAN, or a **deep-learning-based** clustering approach (autoencoder + clustering)
-> - Meet two more essential unsupervised tools: **Hierarchical Clustering** and **Gaussian Mixture Models**
-> - Most importantly: turn cluster numbers into **business personas** and concrete, profit-driving **actions** (with a full win-back campaign revenue estimate)
+> - Understand why unsupervised learning is the right approach when no ground-truth labels exist, and how it differs from supervised learning. Explore transactional retail data, engineer customer-level RFM and behavioral features, apply scaling and PCA to address distance-related challenges, evaluate clustering quality with key metrics, and understand the algorithms and use cases of K-Means, DBSCAN, Hierarchical Clustering, Gaussian Mixture Models, and deep-learning-based clustering. Most importantly, translate clusters into meaningful business personas and actionable strategies with measurable profit impact.
 
 ---
 
@@ -352,23 +305,12 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 | Resource | Link |
 |:---|:---|
-| 📄 Assignment | [AI-Homework-Assignment-Week-5.docx](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-5.docx) |
+| 📄 Assignment | [AI-Homework-Assignment-Week-5.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-5.pdf) |
 | 📂 Dataset | [retail_insights_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_insights_dataset.csv) *(5,000 order-line records, 789 unique customers — see data dictionary below)* |
 
 > 💡 **Homework Tasks**
 >
-> - Clean the currency columns, parse dates, handle the 2 missing values, and explore Order Total, Customer Type, Product Category, and Order Priority
-> - Aggregate order-lines to the **customer level** and build a **true RFM feature set** (Recency, Frequency, Monetary) — real repeat customers finally make this possible
-> - Add **at least 2 more behavioral features** of your own choosing (e.g. avg. discount %, avg. profit margin, dominant category, % Critical/High-priority orders)
-> - Apply **StandardScaler** and explain in your own words why scaling isn't optional for K-Means/DBSCAN
-> - Apply **PCA**, report explained variance, and visualize a 2D projection before and after clustering
-> - Choose **ONE** clustering approach — K-Means, DBSCAN, or a deep-learning-based approach — and **justify the choice** using the Decision Guide criteria from class
-> - Select K with at least 2 of the 4 metrics (or tune `eps`/`min_samples` with a k-distance plot if using DBSCAN)
-> - Validate with **Silhouette Score** at minimum (Davies-Bouldin / Calinski-Harabasz / noise % where relevant)
-> - **Business Interpretation (heaviest-weighted step)** — profile every cluster with real numbers and give each one a clear, memorable persona name
-> - Recommend **at least one concrete, profit-maximizing action per cluster**, with a quantified, clearly-labeled revenue estimate — exactly like the in-class win-back campaign
-> - Conclude: which cluster is most valuable, which is most at-risk of churning, and which one you'd target first with a limited budget
-> - **Bonus**: try an algorithm not covered hands-on in class (Spectral Clustering, HDBSCAN, Mean Shift, GMM), compare two approaches side by side, build a loyalty/churn-risk score, quantify what-if profit for 2+ clusters, or build the autoencoder + clustering pipeline as an alternative model
+> - Clean and explore the retail data, build a true customer-level RFM feature set with at least two additional behavioral features, apply scaling and PCA with explanations and visualizations, choose and justify one clustering approach (K-Means, DBSCAN, or deep learning), optimize and validate the model using appropriate metrics, then interpret each cluster with meaningful personas, real business insights, and quantified profit-maximizing actions. Conclude with the most valuable and highest-risk customer groups and recommend the best targeting strategy. Bonus: compare alternative clustering methods, build loyalty/churn scores, run what-if profit analysis, or develop an autoencoder-based clustering pipeline.
 
 <details>
 <summary>🛍️ Dataset Dictionary — Retail Insights (Homework)</summary>
