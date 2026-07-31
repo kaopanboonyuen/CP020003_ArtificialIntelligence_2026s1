@@ -295,7 +295,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 > 💡 **Lab Topics**
 >
-> - Use unsupervised learning to cluster customers and transform data into meaningful business strategies. ✨
+> - Use unsupervised learning to cluster customers and transform data into meaningful business strategies.
 
 ---
 
