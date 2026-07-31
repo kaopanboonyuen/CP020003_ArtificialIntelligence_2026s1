@@ -222,7 +222,6 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 |:---|:---|
 | 🧠 Lecture Slide | [lecture_4_dna_classification.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_4_dna_classification.pdf) |
 | 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week4_InClass.ipynb) |
-| 📄 Lab Instructions | [AI-Homework-Assignment-Week-4.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-4.pdf) |
 | 📂 Dataset | [dna-synthetic.zip](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/dna-synthetic.zip) |
 
 > 💡 **Lab Topics**
@@ -290,7 +289,6 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 |:---|:---|
 | 🧠 Lecture Slide | [lecture_5_unsupervised_learning.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_5_unsupervised_learning.pdf) |
 | 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week5_InClass.ipynb) |
-| 📄 Lab Instructions | [AI-Homework-Assignment-Week-5.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-5.pdf) |
 | 📂 Dataset | [retail_sales_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_sales_dataset.csv) |
 
 > 💡 **Lab Topics**
