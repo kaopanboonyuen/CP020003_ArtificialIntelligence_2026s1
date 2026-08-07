@@ -297,6 +297,43 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
+### 📝 Homework Assignment — Retail Insights Dataset (True RFM)
+
+> 🎯 **Goal**: Apply the full unsupervised learning workflow independently on a real, order-level dataset with genuine repeat customers — build a true RFM feature set, choose and justify one clustering approach, validate it, and translate every cluster into a numbers-backed business persona and profit-maximizing action.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-5.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-5.pdf) |
+| 📂 Dataset | [retail_insights_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_insights_dataset.csv) |
+
+> 💡 **Homework Tasks**
+>
+> - Clean retail data, build RFM and behavioral features, apply clustering with proper evaluation, interpret customer personas, and recommend data-driven business strategies with measurable impact.
+
+<details>
+<summary>🛍️ Dataset Dictionary — Retail Insights (Homework)</summary>
+
+| Column | Description |
+|:---|:---|
+| `Order No` | Unique order-line identifier, e.g. `4293-1` |
+| `Order Date` | Date the order was placed (`DD-MM-YYYY`) |
+| `Customer Name` | Customer who placed the order — repeats across rows (789 unique customers / 5,000 order lines) |
+| `Address` / `City` / `State` | Delivery location — Sydney, NSW or Melbourne, VIC |
+| `Customer Type` | Consumer / Corporate / Home Office / Small Business |
+| `Account Manager` | Staff member managing the account |
+| `Order Priority` | Critical / High / Medium / Low / Not Specified |
+| `Product Name` / `Product Category` / `Product Container` | What was purchased — category is Office Supplies, Technology, or Furniture |
+| `Ship Mode` / `Ship Date` | How and when the order shipped |
+| `Cost Price` / `Retail Price` / `Profit Margin` | Unit-level currency strings (e.g. `"$156.50"`) — strip `$` and commas before converting to float |
+| `Order Quantity` | Units in this order line |
+| `Sub Total` / `Discount %` / `Discount $` / `Order Total` / `Shipping Cost` / `Total` | Full pricing breakdown, also stored as currency/percent strings — `Order Total`/`Total` is the natural Monetary feature |
+
+> ⚠️ **Grading emphasis**: most marks are earned in the *business interpretation* steps — a clear, numbers-backed persona and action per cluster beats a technically perfect pipeline with generic descriptions. The clearest, best-explained submission earns **+1% extra credit**.
+
+</details>
+
+---
+
 ### 📅 Week 6 — Recommender Systems: From "People Also Bought" to Deep Learning
 
 > 🎯 **Goal**: Build a full family of recommenders — popularity-based, user- and item-based collaborative filtering, matrix factorization (SVD), content-based filtering, and Neural Collaborative Filtering — while learning sparsity, cold-start handling, leakage-safe train/test splitting, and how to turn Precision@K/Recall@K/Coverage into a production deployment decision.
@@ -353,43 +390,6 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 | `Probability_of_Recommendation` | 0–1 pseudo-label, usable as a regression target for a ranking model |
 
 > ⚠️ **Grading emphasis**: getting one recommender running is not enough. Most marks come from Steps 6–9 — a rigorous, honest head-to-head comparison on held-out data and a clear, numbers-backed deployment recommendation per customer segment beats five techniques bolted on with only a vague sentence of comparison.
-
-</details>
-
----
-
-### 📝 Homework Assignment — Retail Insights Dataset (True RFM)
-
-> 🎯 **Goal**: Apply the full unsupervised learning workflow independently on a real, order-level dataset with genuine repeat customers — build a true RFM feature set, choose and justify one clustering approach, validate it, and translate every cluster into a numbers-backed business persona and profit-maximizing action.
-
-| Resource | Link |
-|:---|:---|
-| 📄 Assignment | [AI-Homework-Assignment-Week-5.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-5.pdf) |
-| 📂 Dataset | [retail_insights_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/retail_insights_dataset.csv) |
-
-> 💡 **Homework Tasks**
->
-> - Clean retail data, build RFM and behavioral features, apply clustering with proper evaluation, interpret customer personas, and recommend data-driven business strategies with measurable impact.
-
-<details>
-<summary>🛍️ Dataset Dictionary — Retail Insights (Homework)</summary>
-
-| Column | Description |
-|:---|:---|
-| `Order No` | Unique order-line identifier, e.g. `4293-1` |
-| `Order Date` | Date the order was placed (`DD-MM-YYYY`) |
-| `Customer Name` | Customer who placed the order — repeats across rows (789 unique customers / 5,000 order lines) |
-| `Address` / `City` / `State` | Delivery location — Sydney, NSW or Melbourne, VIC |
-| `Customer Type` | Consumer / Corporate / Home Office / Small Business |
-| `Account Manager` | Staff member managing the account |
-| `Order Priority` | Critical / High / Medium / Low / Not Specified |
-| `Product Name` / `Product Category` / `Product Container` | What was purchased — category is Office Supplies, Technology, or Furniture |
-| `Ship Mode` / `Ship Date` | How and when the order shipped |
-| `Cost Price` / `Retail Price` / `Profit Margin` | Unit-level currency strings (e.g. `"$156.50"`) — strip `$` and commas before converting to float |
-| `Order Quantity` | Units in this order line |
-| `Sub Total` / `Discount %` / `Discount $` / `Order Total` / `Shipping Cost` / `Total` | Full pricing breakdown, also stored as currency/percent strings — `Order Total`/`Total` is the natural Monetary feature |
-
-> ⚠️ **Grading emphasis**: most marks are earned in the *business interpretation* steps — a clear, numbers-backed persona and action per cluster beats a technically perfect pipeline with generic descriptions. The clearest, best-explained submission earns **+1% extra credit**.
 
 </details>
 
