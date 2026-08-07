@@ -342,7 +342,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 | Resource | Link |
 |:---|:---|
-| 🧠 Lecture Slide | [lecture_6_recommender_systems.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_6_recommender_systems.pdf) |
+| 🧠 Lecture Slide | [lecture_6_recommender_systems.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_6_recommender_syetems.pdf) |
 | 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week6_InClass.ipynb) |
 | 📂 Dataset | [Book-Crossing (Books.csv + Ratings.csv)](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/book-crossing.zip) |
 
@@ -355,7 +355,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
-### 📝 Homework Assignment — E-Commerce Implicit Recommenders (No Ready-Made Rating Matrix)
+### 📝 Homework Assignment — E-Commerce Implicit Recommenders
 
 > 🎯 **Goal**: Unlike class, this week there's **no shared rating table** — just a customer profile table and a product catalog table. Design your own implicit customer–product interaction signal from `Browsing_History`/`Purchase_History`, then build and rigorously compare **≥ 2 techniques** (Popularity, CF, SVD, Content-Based, or Deep Learning) on the same held-out split, handle cold start, and back a deployment recommendation with real Precision@K/Recall@K/Coverage numbers.
 
