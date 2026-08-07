@@ -297,6 +297,67 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
+### 📅 Week 6 — Recommender Systems: From "People Also Bought" to Deep Learning
+
+> 🎯 **Goal**: Build a full family of recommenders — popularity-based, user- and item-based collaborative filtering, matrix factorization (SVD), content-based filtering, and Neural Collaborative Filtering — while learning sparsity, cold-start handling, leakage-safe train/test splitting, and how to turn Precision@K/Recall@K/Coverage into a production deployment decision.
+
+#### 🛠️ In-Class Lab: Recommender Systems on the Book-Crossing Dataset
+
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [lecture_6_recommender_systems.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_6_recommender_systems.pdf) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week6_InClass.ipynb) |
+| 📂 Dataset | [Book-Crossing (Books.csv + Ratings.csv)](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/book-crossing.zip) |
+
+> 💡 **Lab Topics**
+>
+> - The recommender systems "family tree" (popularity → content-based → collaborative filtering → matrix factorization → deep learning) and when each fits
+> - EDA on rating distributions & matrix sparsity; leakage-safe train/test splitting *before* building any similarity matrix
+> - Popularity-based (Bayesian-average), User-based CF, Item-based CF, SVD matrix factorization, Content-based filtering, and Neural Collaborative Filtering (NCF)
+> - Evaluation beyond RMSE — Precision@K, Recall@K, Coverage — and translating cluster/segment results into a business action + revenue estimate
+
+---
+
+### 📝 Homework Assignment — E-Commerce Implicit Recommenders (No Ready-Made Rating Matrix)
+
+> 🎯 **Goal**: Unlike class, this week there's **no shared rating table** — just a customer profile table and a product catalog table. Design your own implicit customer–product interaction signal from `Browsing_History`/`Purchase_History`, then build and rigorously compare **≥ 2 techniques** (Popularity, CF, SVD, Content-Based, or Deep Learning) on the same held-out split, handle cold start, and back a deployment recommendation with real Precision@K/Recall@K/Coverage numbers.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-6.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-6.pdf) |
+| 📂 Dataset | [e-commerce.zip](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/e-commerce.zip) |
+
+> 💡 **Homework Tasks**
+>
+> - Parse list-formatted `Browsing_History`/`Purchase_History` columns and build a weighted implicit Customer × Product interaction matrix (purchase = 1.0, browse-only = 0.3)
+> - Pick and justify ≥ 2 techniques, train/test on the same leakage-safe split, and generate top-N recommendations for one customer per `Customer_Segment`
+> - Evaluate & compare techniques side-by-side (Precision@K / Recall@K / Coverage, or RMSE), handle cold-start users/products explicitly, and quantify business impact per segment
+
+<details>
+<summary>🛒 Dataset Dictionary — E-Commerce (Homework)</summary>
+
+| Column | Description |
+|:---|:---|
+| `Customer_ID` | Unique customer identifier, e.g. `C1000` (10,000 customers) |
+| `Age` / `Gender` / `Location` | Demographics — Location is one of 5 Indian cities |
+| `Browsing_History` | Python-list string of browsed categories, e.g. `"['Books','Fashion']"` — weak implicit signal |
+| `Purchase_History` | Python-list string of purchased items — the strongest implicit signal, treat like last week's explicit ratings |
+| `Customer_Segment` | New Visitor / Occasional Shopper / Frequent Buyer — used for cold-start framing |
+| `Avg_Order_Value` / `Holiday` / `Season` | Spend and context fields |
+| `Product_ID` | Unique product identifier, e.g. `P2000` (10,000 products) |
+| `Category` / `Subcategory` | Category is one of 6 values (Fashion, Beauty, Electronics, Books, Home Decor, Fitness) — shared vocabulary with customer history, which links the two tables |
+| `Price` / `Brand` | List price and one of 4 brand codes |
+| `Product_Rating` / `Average_Rating_of_Similar_Products` | Roughly 1–5 scale ratings |
+| `Customer_Review_Sentiment_Score` | 0–1 sentiment score from review text |
+| `Similar_Product_List` | Python-list string of related products — ready-made item–item signal |
+| `Probability_of_Recommendation` | 0–1 pseudo-label, usable as a regression target for a ranking model |
+
+> ⚠️ **Grading emphasis**: getting one recommender running is not enough. Most marks come from Steps 6–9 — a rigorous, honest head-to-head comparison on held-out data and a clear, numbers-backed deployment recommendation per customer segment beats five techniques bolted on with only a vague sentence of comparison.
+
+</details>
+
+---
+
 ### 📝 Homework Assignment — Retail Insights Dataset (True RFM)
 
 > 🎯 **Goal**: Apply the full unsupervised learning workflow independently on a real, order-level dataset with genuine repeat customers — build a true RFM feature set, choose and justify one clustering approach, validate it, and translate every cluster into a numbers-backed business persona and profit-maximizing action.
