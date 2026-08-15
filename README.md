@@ -395,6 +395,64 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
+### 📅 Week 7 — Association Rules & Market Basket Analysis: From "Diapers & Beer" to Embeddings
+
+> 🎯 **Goal**: Build a full association-rule-mining pipeline — Apriori, FP-Growth, and an embedding-based Item2Vec model — on the KKU Online Retail transaction log, then learn to filter rules by Support/Confidence/Lift (not just sort by Confidence), handle the rare-item long-tail problem, and turn a rule into an estimated revenue number.
+
+#### 🛠️ In-Class Lab: Association Rules on the KKU Online Retail Dataset
+
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [lecture_7_association_rules_and_market_basket_analysis.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_7_association_rules_and_market_basket_analysis.pdf) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week7_InClass.ipynb) |
+| 📂 Dataset | [KKU-EUOnlineRetail.csv.zip](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/KKU-EUOnlineRetail.csv.zip) |
+
+> 💡 **Lab Topics**
+>
+> - How Association Rule Mining differs from Week 6's Recommenders — co-occurrence across all baskets vs. per-user personalization
+> - Core formulas by hand: Support, Confidence, Lift (plus bonus Leverage/Conviction), worked on six toy transactions
+> - Cleaning a raw transaction log → one-hot basket matrix (drop cancellations, non-positive Quantity/UnitPrice, missing Description)
+> - Apriori (downward closure) vs. FP-Growth (FP-tree, no candidate generation) — same rules, different speed
+> - Item2Vec: embedding-based basket analysis for rare, long-tail products that never clear a support threshold
+> - Visualizing rules (Support/Confidence/Lift scatter, network graph) and costing a rule into estimated incremental revenue
+
+---
+
+### 📝 Homework Assignment — Open-Ended Market Basket Investigation
+
+> 🎯 **Goal**: Same KKU Online Retail dataset as class, but **you choose the market, the min_support strategy, and the technique mix**. Pick a country/segment/season, justify your thresholds with evidence, mine rules with ≥ 2 techniques (Apriori, FP-Growth, Item2Vec), and back a deployment recommendation with real Support/Confidence/Lift numbers.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-7.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-7.pdf) |
+| 📂 Dataset | [KKU-EUOnlineRetail.csv.zip](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/KKU-EUOnlineRetail.csv.zip) |
+
+> 💡 **Homework Tasks**
+>
+> - Guided warm-up: re-run on Germany/full UK, re-time Apriori vs. FP-Growth, hand-calculate {Bread}⇒{Milk}, tune Item2Vec, find an embedding-only rule
+> - Open-ended: pick your own market/segment, justify min_support/confidence/lift thresholds with a plot, and define what "interesting" means up front
+> - Compare ≥ 2 techniques side-by-side on the same basket data (rule count, avg Lift, runtime, catalog coverage), handle the long-tail explicitly, and quantify business impact for your best rule
+
+<details>
+<summary>🛒 Dataset Dictionary — KKU Online Retail (Homework)</summary>
+
+| Column | Description |
+|:---|:---|
+| `InvoiceNo` | Transaction/receipt ID — 6-digit numbers starting with "C" are cancellations, exclude these |
+| `StockCode` | Product code — cleaner canonical key than Description, use for Item2Vec |
+| `Description` | Product name — strip whitespace before grouping |
+| `Quantity` | Units purchased — negative values are returns, exclude these too |
+| `InvoiceDate` | Purchase date/time — useful for season/day-of-week/hour segmentation |
+| `UnitPrice` | Price per unit, in GBP |
+| `CustomerID` | Can be missing for guest checkouts — baskets are defined by InvoiceNo, not CustomerID |
+| `Country` | Natural segmentation column — in-class notebook used France; homework asks you to pick your own |
+
+> ⚠️ **Grading emphasis**: getting one algorithm to run is not enough. Most marks come from rigorously comparing your ≥ 2 techniques on the same basket data and backing your deployment recommendation with real numbers — a submission that mines one country carefully beats one that mines five countries with only a vague sentence of comparison.
+
+</details>
+
+---
+
 ## 📚 References & Credits
 
 | Resource | Link |
