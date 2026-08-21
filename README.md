@@ -453,6 +453,77 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
+### 📅 Week 8 — Modern AI Foundations: From Formulas to Foundation Models
+
+> 🎯 **Goal**: Get hands-on with five ideas that define modern AI — multimodal models, LLMs, agentic AI, RAG, and LoRA/fine-tuning — each running live on a **free Colab GPU** in under a minute, right before your midterm. Then shift gears: a full recap of Weeks 1–7 and a guide to how the midterm is structured.
+
+#### 🛠️ In-Class Lab: Five Foundation-Model Demos, Zero Setup Pain
+
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [week8_modern_ai_foundations_and_recap_midterm.pptx](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/week8_modern_ai_foundations_and_recap_midterm.pptx) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week8_InClass_ModernAI_Preview.ipynb) |
+| 🤗 Models Used | `Qwen2.5-0.5B-Instruct`, `openai/clip-vit-base-patch32`, `all-MiniLM-L6-v2` — pulled live from Hugging Face, no dataset download needed |
+
+> 💡 **Lab Topics**
+>
+> - Why this week is deliberately short: small models, big ideas, fast enough for a free T4 GPU
+> - The LLM concept — chat with a real Transformer, not just read about one
+> - Multimodal AI — CLIP zero-shot image classification, no task-specific training
+> - Agentic AI — a tiny observe → think → act loop that decides when to call a calculator tool
+> - RAG — retrieve a fact from a 5-line knowledge base, then generate a grounded answer
+> - LoRA / fine-tuning — `peft` prints exactly how few parameters a LoRA adapter actually trains
+> - What's *not* covered yet on purpose — bigger models, real training runs, full agents — all coming back in depth right after the midterm
+
+---
+
+### 📝 Homework Assignment — Association Rules, One More Time (By Hand)
+
+> 🎯 **Goal**: Same core skill as Week 7's toy example, brand-new numbers. A flat-pack home-goods store, HemHome, replaces the exam's own scenario — so you're proving you can apply Support, Confidence, Lift, Leverage, and Conviction yourself, not recalling a worked answer.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [Week8_Homework_Assignment.docx](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/Week8_Homework_Assignment.docx) |
+| 📂 Dataset | None to download — 8 toy transactions are printed directly in the assignment |
+
+> 💡 **Homework Tasks**
+>
+> - Evaluate the rule {Pillow Cover} ⇒ {Ceramic Bowl}: Support(B), Support(C), Support(B,C), Confidence, Lift — full working shown
+> - Leverage and Conviction for the same rule
+> - Confidence in the reverse direction {C} ⇒ {B}, and a short explanation of why Confidence isn't symmetric
+> - Interpret the Lift value — genuine association, or plausibly chance?
+> - One concrete business recommendation for the store manager
+
+<details>
+<summary>🛋️ Dataset Dictionary — HemHome (Homework, toy scenario)</summary>
+
+| Code | Item |
+|:---|:---|
+| A | Table Lamp |
+| B | Pillow Cover |
+| C | Ceramic Bowl |
+| D | Dinner Plate |
+| E | Curtain Panel |
+| F | Scented Candle |
+
+N = 8 transactions, printed in full inside the assignment — no download required.
+
+> ⚠️ **Grading emphasis**: full marks require every step of the arithmetic shown for 2.1–2.2, not just a final number. Questions 2.3–2.5 are graded on the quality of your reasoning, not on matching one "correct" sentence.
+
+</details>
+
+---
+
+### 🍀 Before Next Week — Good Luck on the Midterm!
+
+You've put in seven solid weeks: feature engineering, supervised and unsupervised learning, recommenders, and association rule mining. Trust your preparation, show every step of your hand calculations, and manage your time across all five questions.
+
+Wishing everyone a **smooth, calm midterm** 🍀 Do your best, trust what you've prepared, and we'll see you right after the exam — we'll come back and go much deeper into all five ideas from this week. 🎉
+
+**SEE YOU AFTER THE MIDTERM**
+
+---
+
 ## 📚 References & Credits
 
 | Resource | Link |
