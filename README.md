@@ -462,7 +462,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 | Resource | Link |
 |:---|:---|
 | 🧠 Lecture Slide | [week8_modern_ai_foundations_and_recap_midterm.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/week8_modern_ai_foundations_and_recap_midterm.pdf) |
-| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week8_InClass_ModernAI_Preview.ipynb) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week8_InClass.ipynb) |
 | 🤗 Models Used | `Qwen2.5-0.5B-Instruct`, `openai/clip-vit-base-patch32`, `all-MiniLM-L6-v2` — pulled live from Hugging Face, no dataset download needed |
 
 > 💡 **Lab Topics**
@@ -483,7 +483,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 | Resource | Link |
 |:---|:---|
-| 📄 Assignment | [Week8_Homework_Assignment.docx](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/Week8_Homework_Assignment.docx) |
+| 📄 Assignment | [Week8_Homework_Assignment.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-8.pdf) |
 | 📂 Dataset | None to download — 8 toy transactions are printed directly in the assignment |
 
 > 💡 **Homework Tasks**
