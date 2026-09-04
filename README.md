@@ -524,6 +524,62 @@ Wishing everyone a **smooth, calm midterm** 🍀 Do your best, trust what you've
 
 ---
 
+### 📅 Week 9 — Time Series Forecasting: From Classical Statistics to Transformers
+
+> 🎯 **Goal**: Build a full forecasting ladder on real NASDAQ Composite (IXIC) daily data — classical stats (AR, MA, ARMA, ARIMA, SARIMA, Holt-Winters, VAR), tabular ML on lag features (Linear Regression, RF, XGBoost, LightGBM, CatBoost), deep sequence models (MLP, RNN, LSTM, GRU, 1D CNN), and a causal self-attention demo — all benchmarked against the naive "tomorrow = today" baseline on the same held-out window.
+
+#### 🛠️ In-Class Lab: Forecasting the NASDAQ Composite (IXIC)
+
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [lecture_9_timeseries_forecasting.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_9_timeseries_forecasting.pdf) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week9_InClass.ipynb) |
+| 📂 Dataset | Global stock indices (`indexData.csv`, `indexInfo.csv`, `indexProcessed.csv`) — IXIC, Jan 2015–May 2021, 1,613 trading days |
+
+> 💡 **Lab Topics**
+>
+> - Time series vs. tabular ML: order matters, no shuffling, chronological split only
+> - EDA + `seasonal_decompose` (trend/seasonality/residual) and the ADF stationarity test (raw vs. differenced Close)
+> - ACF/PACF for picking AR(p)/MA(q) order, then the classical ladder: Naive → AR → MA → ARMA → ARIMA → SARIMA → Holt-Winters → VAR
+> - Reshaping a series into lag features (lag_1/5/20, rolling stats, Volume) for Linear Regression, RF, XGBoost, LightGBM, CatBoost — with feature-importance check (lag_1 dominates)
+> - Deep sequence models on raw sliding windows: MLP → RNN → LSTM → GRU → 1D CNN
+> - Self-attention demo: causal attention weights over the last 20 days
+> - Final scoreboard: MAE/RMSE/MAPE for every model vs. Naive baseline on the same 60-day test window
+
+---
+
+### 📝 Homework Assignment — Open-Ended Forecasting Investigation on TSLA
+
+> 🎯 **Goal**: Same forecasting ladder as class, but **you choose the instrument's target, split, and model mix** — on Tesla (TSLA) daily OHLCV, deliberately open-ended (not a fixed "correct" model to land on).
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-9.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-9.pdf) |
+| 📂 Dataset | [TSLA-KKU-INCLASS.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/TSLA-KKU-INCLASS.csv) |
+
+> 💡 **Homework Tasks**
+>
+> - Guided warm-up: vary TEST_SIZE (30/90/120), re-run ADF on raw vs. differenced Adj Close, propose AR/MA order from ACF/PACF, tune LSTM/GRU SEQ_LEN (10/20/40), and probe the stock-split anomaly (Aug 2020 & Aug 2022) on raw Close vs. Adj Close
+> - Open-ended: pick target (Close/Adj Close) + horizon (30/60/90-day test), justify your engineered features, and define your own "worth deploying" criterion up front
+> - Required: EDA + split-date markers, stationarity/decomposition, chronological split, ≥2 model families (Classical/ML/DL), score all vs. naive (MAE/RMSE/MAPE), residual diagnostics (Ljung-Box) on ≥1 classical model, explicit split-handling fix, and a business recommendation backed by real numbers
+
+<details>
+<summary>📈 Dataset Dictionary — TSLA (Homework)</summary>
+
+| Column | Description |
+|:---|:---|
+| `Date` | Trading date (YYYY-MM-DD) — sort ascending, never shuffle |
+| `Open / High / Low` | Intraday price range, USD |
+| `Close` | Raw closing price — **not** split-adjusted |
+| `Adj Close` | Split/dividend-adjusted close — TSLA split 5:1 (Aug 2020) and 3:1 (Aug 2022); raw Close shows fake "cliffs" on those dates that Adj Close doesn't |
+| `Volume` | Shares traded that day |
+
+> ⚠️ **Grading emphasis**: one model running is not enough — most marks come from Steps 6–10 (rigorous naive-baseline benchmarking, residual/split diagnostics, and a recommendation backed by real MAE/RMSE/MAPE numbers). Two well-diagnosed model families beats five architectures with only a vague comparison sentence.
+
+</details>
+
+---
+
 ## 📚 References & Credits
 
 | Resource | Link |
