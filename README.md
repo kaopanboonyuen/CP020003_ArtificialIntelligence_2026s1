@@ -580,6 +580,68 @@ Wishing everyone a **smooth, calm midterm** 🍀 Do your best, trust what you've
 
 ---
 
+![](img/KAO_HOUSEPRICE_TASK.jpeg)
+
+---
+
+### 📅 Week 10 — Regression in Banking: Pricing a Loan From Linear Regression to Modern AI
+
+> 🎯 **Goal**: Build a full regression ladder to price a consumer loan's interest rate — Linear/Ridge/Lasso/ElasticNet, tree ensembles (RF, Gradient Boosting, XGBoost, LightGBM, CatBoost), a PyTorch MLP, a pretrained tabular foundation model (TabPFN), and a GenAI layer that explains the model in plain English — all benchmarked against a "guess the average" baseline.
+
+#### 🛠️ In-Class Lab: Pricing Loans (Kaggle KKU Loan Data)
+
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [lecture_10_regression_in_banking.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_10_regression_in_banking.pdf) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week10_InClass.ipynb) |
+| 📂 Dataset | `kaggle_kku_loan_data` (train/test) — messy string columns (`%`, `"720-724"`, `"10+ years"`) cleaned to numeric |
+
+> 💡 **Lab Topics**
+>
+> - Cleaning real bank data: percentages, FICO ranges, employment-length text mapping
+> - Leakage check: `Amount.Funded.By.Investors` correlates ~0.97 with `Amount.Requested` and is set *after* pricing — dropped from the "fair" feature set
+> - One shared `ColumnTransformer`/`Pipeline` for every model; scored on MAE, MSE, RMSE, MAPE, R², MedAE
+> - Ladder: Baseline (mean) → Linear/Ridge/Lasso/ElasticNet → Decision Tree/RF/GBM/XGBoost/LightGBM/CatBoost → PyTorch MLP → TabPFN (foundation model, in-context learning, no training)
+> - Explainability: coefficients, permutation importance, SHAP summary plots, partial dependence (FICO × DTI)
+> - GenAI layer: a small HF language model turns CatBoost's feature importances into a plain-English explanation for a loan officer
+> - Production loop: score on validation (`y_val` known) → quote brand-new test applicants (`y` unknown) → save predictions
+
+---
+
+### 📝 Homework Assignment — Open-Ended Regression Investigation on House Prices
+
+> 🎯 **Goal**: Same regression ladder as class, but **you choose the target framing, features, and model mix** — on a Kaggle-style KKU house price dataset, deliberately open-ended.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-10.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-10.pdf) |
+| 📂 Dataset | [kaggle_kku_house_price_dataset.csv](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/dataset/kaggle_kku_house_price_dataset.csv) |
+
+> 💡 **Homework Tasks**
+>
+> - Guided warm-up: vary validation split size (0.1/0.2/0.3), correlate every feature with `House_Price`, compare Linear/Ridge/Lasso/ElasticNet coefficients, tune RF/XGBoost hyperparameters, and (challenge) try the PyTorch MLP
+> - Open-ended: pick target framing (raw vs. log `House_Price`), justify engineered features (e.g. `House_Age`), and define your own "worth deploying" criterion up front
+> - Required: EDA, feature-engineering sanity check, shared preprocessing pipeline, ≥2 model families, score all vs. baseline (MAE/RMSE/MAPE/R²), interpretability (coefficients + permutation importance/SHAP), partial dependence on `Square_Footage`, and a business recommendation backed by real numbers
+
+<details>
+<summary>🏠 Dataset Dictionary — House Price (Homework)</summary>
+
+| Column | Description |
+|:---|:---|
+| `Square_Footage` | Total finished living area (sq ft) |
+| `Num_Bedrooms` / `Num_Bathrooms` | Room counts |
+| `Year_Built` | Construction year — consider `House_Age = today − Year_Built` |
+| `Lot_Size` | Land parcel size (acres) |
+| `Garage_Size` | Garage capacity (0–2 cars) |
+| `Neighborhood_Quality` | Desirability index, 1 (low) – 10 (high) |
+| `House_Price` | Sale price (USD) — regression target |
+
+> ⚠️ **Grading emphasis**: one model running is not enough — most marks come from rigorous baseline benchmarking, feature-importance/partial-dependence checks, and a recommendation backed by real MAE/RMSE/MAPE numbers. Two well-diagnosed model families beats five architectures with only a vague comparison sentence.
+
+</details>
+
+---
+
 ## 📚 References & Credits
 
 | Resource | Link |
