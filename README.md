@@ -733,6 +733,7 @@ Wishing everyone a **smooth, calm midterm** 🍀 Do your best, trust what you've
 | 🔥 PyTorch | [pytorch.org](https://pytorch.org) |
 | 📊 Kaggle | [kaggle.com](https://www.kaggle.com) |
 | 🌐 CS224N — Stanford NLP | [web.stanford.edu/class/cs224n](https://web.stanford.edu/class/cs224n/) |
+| 🎯 Ultralytics (YOLO) | [ultralytics.com](https://www.ultralytics.com) |
 
 ---
 
