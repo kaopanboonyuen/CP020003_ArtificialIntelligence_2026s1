@@ -77,6 +77,42 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
+### 📅 Final Project Presentation — Worth 40% of Your Final Grade
+
+> 🎯 **Goal**: Design, build, and orally present an original AI project connecting to any topic covered in this course — from feature engineering and supervised/unsupervised learning to recommenders, forecasting, computer vision, and modern foundation models.
+
+#### 🛠️ Final Project: Guidelines & Registration
+
+| Resource | Link |
+|:---|:---|
+| 📖 Full Guideline (PDF) | [CP020003_Final_Project_Guideline.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/project/CP020003_Final_Project_Guideline.pdf) |
+| 📝 Group & Topic Registration | [Register here](https://docs.google.com/spreadsheets/d/17yUwyy5dglO99wx4BLlm_ZUd8pvuz3AenU2VTOS5cHE/edit?usp=sharing) |
+
+> 💡 **Key Details**
+>
+> - **Groups**: up to 6 students per group
+> - **Topic**: your choice — any AI application that relates to a concept taught in this course
+> - **Format**: Oral Presentation, held during **Final Exam week** (exact date & venue to be announced via the course's online channel)
+> - **Grading (40 points / 40%)**: technical difficulty, oral presentation quality, topic creativity & impact, pipeline correctness, and dataset understanding
+> - **Bonus**: +2% (real, on top of your final grade) for collecting and labeling your own dataset instead of using an existing public one
+
+<details>
+<summary>📋 What to Do Right Now</summary>
+
+| Step | Action |
+|:---|:---|
+| 1 | Read the full guideline PDF linked above |
+| 2 | Form your group (max 6 students) |
+| 3 | Reserve your topic in the registration sheet — include group name, topic, model/task type, and each member's name + student ID |
+| 4 | Start building your pipeline: data → preprocessing → modeling → evaluation → insight |
+| 5 | Prepare your oral presentation for Final Exam week |
+
+> ⚠️ **Grading emphasis**: a working pipeline is not enough on its own — strong marks come from a clear, well-justified methodology, honest evaluation, and a confident oral defense of your choices.
+
+</details>
+
+---
+
 ## 🗓️ Weekly Schedule
 
 ### 📅 Week 1 — Introduction to AI + Heart Attack Dataset
