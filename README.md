@@ -642,6 +642,83 @@ Wishing everyone a **smooth, calm midterm** 🍀 Do your best, trust what you've
 
 ---
 
+![](img/Kao_Intro_to_CV.jpeg)
+
+---
+
+### 📅 Week 11 — Computer Vision: Teaching a Model to Read Pictures
+
+> 🎯 **Goal**: Build one working, trainable, measurable pipeline for **six** computer vision tasks — image classification, object detection, oriented object detection (OBB), instance segmentation, monocular depth estimation, and pose estimation — using a single consistent library (Ultralytics YOLOv8) plus a pretrained depth model (MiDaS) for the one task YOLO doesn't cover.
+
+#### 🛠️ In-Class Lab: Six Tasks, One Shared Recipe
+
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [lecture_11_computer_vision.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_11_computer_vision.pdf) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week11_InClass.ipynb) |
+| 📂 Toy Datasets | `mnist160` · `coco8` · `dota8` · `coco8-seg` · `coco8-pose` (all auto-download via Ultralytics) |
+
+> 💡 **Lab Topics**
+>
+> - One repeating pattern for every task: `model = YOLO("<task>.pt")` → `.train(data=...)` → `.predict(...)` → `.val(data=...)`
+> - **Classification** (`yolov8n-cls`, `mnist160`) — ImageFolder layout, scored on Top-1 / Top-5 accuracy
+> - **Detection** (`yolov8n`, `coco8`) — YOLO-format boxes, scored on Precision, Recall, mAP50, mAP50-95
+> - **OBB** (`yolov8n-obb`, `dota8`) — 4-corner rotated boxes for aerial/angled objects, scored on rotated-IoU mAP
+> - **Segmentation** (`yolov8n-seg`, `coco8-seg`) — polygon masks, scored on both box mAP and mask mAP
+> - **Depth Estimation** (pretrained MiDaS, zero-shot) — no YOLO head exists for this task, so we use a pretrained monocular depth model and teach the metric formulas (AbsRel, RMSE, δ1) instead of training from scratch
+> - **Pose Estimation** (`yolov8n-pose`, `coco8-pose`) — 17-keypoint COCO skeleton, scored on box mAP + pose mAP (OKS)
+> - Every section ends with an **"📁 Use Your Own Dataset"** guide — folder layout, label format, and starter code for each of the six tasks
+
+<details>
+<summary>👁️ Task Reference Table — Computer Vision (In-Class)</summary>
+
+| Task | Model | Toy Dataset | Label Format | Headline Metric |
+|:---|:---|:---|:---|:---|
+| Classification | `yolov8n-cls.pt` | `mnist160` | `class_folder/image.jpg` | Top-1 / Top-5 accuracy |
+| Detection (BBox) | `yolov8n.pt` | `coco8.yaml` | `class xc yc w h` | mAP50 / mAP50-95 |
+| OBB | `yolov8n-obb.pt` | `dota8.yaml` | `class x1 y1 ... x4 y4` | mAP50 / mAP50-95 (rotated IoU) |
+| Segmentation | `yolov8n-seg.pt` | `coco8-seg.yaml` | `class x1 y1 ... xn yn` | mask mAP50 / mAP50-95 |
+| Depth Estimation | pretrained MiDaS | — (zero-shot) | RGB ↔ depth-map pairs | AbsRel, RMSE, δ1 |
+| Pose | `yolov8n-pose.pt` | `coco8-pose.yaml` | box + `(x,y,v)` per keypoint | pose mAP50-95 (OKS) |
+
+</details>
+
+---
+
+### 📝 Homework Assignment — Take One Task Off the Toy Dataset
+
+> 🎯 **Goal**: Pick **one** of the six computer vision tasks covered in class, find your own open dataset (not one of the toy sets used in the lab), train a model on it, and report the correct metrics for that task — exactly as we did in class, but for real.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-11.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-11.pdf) |
+| 📂 Dataset | Student's choice — Kaggle Datasets, Roboflow Universe, Hugging Face Datasets, Google Dataset Search, or an official benchmark (COCO, NYU Depth V2, KITTI, ImageNet subsets) |
+
+> 💡 **Homework Tasks**
+>
+> - **Choose your task**: pick exactly one of Classification / Detection / OBB / Segmentation / Depth Estimation / Pose Estimation, and explain in 1–2 sentences why it interests you
+> - **Find an open dataset**: must NOT be one of the toy sets used in class (`mnist160`, `coco8`, `dota8`, `coco8-seg`, `coco8-pose`); report dataset name/link, image count, class count, and your train/val split
+> - **Build & evaluate**: follow the same workflow as the in-class notebook — inspect the data, format labels for your task, fine-tune a pretrained YOLOv8-nano checkpoint (or any other reasonable architecture), run inference on validation images, score with the standard metric(s) for your task, and write a conclusion (what worked, what didn't, one idea to improve)
+> - **Bonus (+2% raw grade)**: collect and label your own photos/video instead of using an internet dataset — still must be trained and evaluated properly
+
+<details>
+<summary>🛠️ Example Open-Source Models by Task (Homework)</summary>
+
+| Task | Example open-source models | Headline metric(s) |
+|:---|:---|:---|
+| Image Classification | ResNet, EfficientNet, YOLOv8-cls, ViT (timm) | Top-1 / Top-5 accuracy |
+| Object Detection | YOLOv8/v11, Faster R-CNN, RT-DETR | Precision, Recall, mAP50, mAP50-95 |
+| Oriented Object Detection (OBB) | YOLOv8-obb | mAP50, mAP50-95 (rotated IoU) |
+| Instance Segmentation | YOLOv8-seg, Mask R-CNN, SAM (as a helper) | Box mAP + Mask mAP50/50-95 |
+| Monocular Depth Estimation | MiDaS, DPT, Depth Anything | AbsRel, RMSE, delta1 |
+| Pose Estimation | YOLOv8-pose, MediaPipe Pose, HRNet | Box mAP + Pose mAP (OKS) |
+
+> ⚠️ **Grading emphasis**: getting a model to simply run is not enough. Most marks come from choosing a dataset that genuinely fits the task, reporting the *correct* metrics (not just accuracy for everything), showing real prediction examples including at least one failure case, and writing a clear, numbers-backed conclusion.
+
+</details>
+
+---
+
 ## 📚 References & Credits
 
 | Resource | Link |
