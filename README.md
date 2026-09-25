@@ -755,6 +755,79 @@ Wishing everyone a **smooth, calm midterm** 🍀 Do your best, trust what you've
 
 ---
 
+### 📅 Week 12 — Generative AI: Teaching a Model to Make Pictures Instead of Read Them
+
+> 🎯 **Goal**: Build one working, measurable pipeline across **six** generative AI tasks — text generation, text-to-image, image-to-text, the image→text→image round trip, inpainting, and one-step "turbo" generation — using Hugging Face `diffusers` and `transformers` on a single free Colab GPU, and see how the classic diffusion recipe is already being replaced by newer 2026 methods.
+
+#### 🛠️ In-Class Lab: Six Tasks, One Shared Ecosystem
+
+| Resource | Link |
+|:---|:---|
+| 🧠 Lecture Slide | [lecture_12_generative_ai.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/slides/lecture_12_generative_ai.pdf) |
+| 🧪 Colab Notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/code/Week12_InClass.ipynb) |
+| 📂 Toy Prompts / Checkpoints | `Qwen2.5-0.5B-Instruct` · `stable-diffusion-v1-5` · `blip-image-captioning-base` · `stable-diffusion-inpainting` · `sd-turbo` (all auto-download via Hugging Face Hub) |
+
+> 💡 **Lab Topics**
+>
+> - One recipe for every task: `from_pretrained(...)` → `.to(device)` → generate → score → `free_memory()` before loading the next model
+> - **Text generation** (`Qwen2.5-0.5B-Instruct`) — autoregressive, one token at a time; streamed live to show it never revises a committed token
+> - **Text → image** (`stable-diffusion-v1-5`) — iterative denoising from a text prompt; hyperparameter sweep over `num_inference_steps` and `guidance_scale`, scored with **CLIP Score**
+> - **Image → text** (`blip-image-captioning-base`) — captions the class's own generated art
+> - **The round trip** (image → text → image) — how much meaning survives translating between modalities
+> - **Inpainting** (`stable-diffusion-inpainting`) — mask-guided partial edits, scored with **CLIP score inside the mask** and **MSE outside it**
+> - **Turbo / distilled generation** (`sd-turbo`) — 1–4 step generation vs. the 20–50 steps classic diffusion needs, compared on speed and CLIP score
+> - Closing discussion: **what's newer than diffusion in 2026** — flow matching, Diffusion Transformers (DiT), and unified autoregressive multimodal models
+
+<details>
+<summary>👁️ Task Reference Table — Generative AI (In-Class)</summary>
+
+| Task | Model | Hugging Face ID | Output | Headline Metric |
+|:---|:---|:---|:---|:---|
+| Text generation | Qwen2.5-0.5B-Instruct | `Qwen/Qwen2.5-0.5B-Instruct` | Token sequence | Human judgment |
+| Text → image | Stable Diffusion v1.5 | `stable-diffusion-v1-5/stable-diffusion-v1-5` | 512×512 image | CLIP score |
+| Image → text | BLIP (base) | `Salesforce/blip-image-captioning-base` | Caption | Human judgment |
+| Round trip | SD v1.5 + BLIP | (both of the above) | Image → text → image | Qualitative drift / CLIP similarity |
+| Inpainting | SD v1.5 Inpainting | `stable-diffusion-v1-5/stable-diffusion-inpainting` | Edited region | CLIP (in) / MSE (out) |
+| Fast text → image | SD-Turbo | `stabilityai/sd-turbo` | 512×512, 1–4 steps | CLIP score vs. seconds |
+
+</details>
+
+---
+
+### 📝 Homework Assignment — Take One Generative Task Off the Toy Prompts
+
+> 🎯 **Goal**: Pick **one** of the six generative AI tasks covered in class, apply it to your **own prompts or images** (not the toy examples used in the lab), and report the correct metric for that task — exactly as we did in class, but for real.
+
+| Resource | Link |
+|:---|:---|
+| 📄 Assignment | [AI-Homework-Assignment-Week-12.pdf](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/assignments/AI-Homework-Assignment-Week-12.pdf) |
+| 📂 Prompts / Images | Student's choice — your own text prompts, your own photos, or images from Unsplash / Pexels / Wikimedia Commons (credit the source) |
+
+> 💡 **Homework Tasks**
+>
+> - **Choose your task**: pick exactly one of Text Generation / Text→Image / Image→Text / Round Trip / Inpainting / Turbo Generation, and explain in 1–2 sentences why it interests you
+> - **Build your own input set**: at least 5 original prompts (generation tasks) or 5 original images (captioning/inpainting tasks) — must NOT reuse the class examples
+> - **Build & evaluate**: follow the same workflow as the in-class notebook — load the pretrained checkpoint, run it on your own inputs, score with the standard metric(s) for your task, show at least one strong result and one failure case, and write a conclusion (what worked, what didn't, one idea to improve)
+> - **Bonus (+2% raw grade)**: swap in a 2026-frontier checkpoint (e.g. a flow-matching model like Flux/SD3, or a unified autoregressive multimodal model) and compare it against the classic diffusion baseline on the same metric
+
+<details>
+<summary>🛠️ Example Open-Source Models by Task (Homework)</summary>
+
+| Task | Example open-source models | Headline metric(s) |
+|:---|:---|:---|
+| Text Generation | Qwen2.5, Llama 3.2, Phi-3.5, Mistral-7B-Instruct | Perplexity / human judgment |
+| Text → Image | SDXL, SDXL-Turbo, Flux.1-schnell, PixArt-α | CLIP score |
+| Image → Text | BLIP-2, LLaVA, GIT | Human judgment / CIDEr (if reference captions exist) |
+| Round Trip | Any text→image + image→text pair above | CLIP text–text similarity (prompt vs. round-trip prompt) |
+| Inpainting | SDXL Inpainting, Kandinsky Inpainting | CLIP (in mask) / MSE (out of mask) |
+| Turbo / Fast Generation | SD-Turbo, SDXL-Turbo, LCM-LoRA, Flux.1-schnell | CLIP score vs. seconds per image |
+
+> ⚠️ **Grading emphasis**: getting a model to simply run is not enough. Most marks come from choosing prompts/images that genuinely test the task, reporting the *correct* metric (not just "it looks good"), showing real output examples including at least one failure case, and writing a clear, numbers-backed conclusion.
+
+</details>
+
+---
+
 ## 📚 References & Credits
 
 | Resource | Link |
