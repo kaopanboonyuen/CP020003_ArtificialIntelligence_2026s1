@@ -85,7 +85,7 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 | Resource | Link |
 | --- | --- |
-| 📄 Final Exam Guide | [Read the Full Guideline (PDF)](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/exam/CP020003_Final_Exam_Guide.pdf) |
+| 🎉 Final Exam Guide | [Read the Full Guideline (PDF)](https://github.com/kaopanboonyuen/CP020003_ArtificialIntelligence_2026s1/blob/main/exam/CP020003_Final_Exam_Guide.pdf) |
 
 > 💡 **Reminder**: Please read the exam guidelines carefully, review the course materials, and follow all exam instructions.
 
