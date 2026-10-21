@@ -77,6 +77,22 @@ This course introduces modern **Artificial Intelligence** using real-world datas
 
 ---
 
+### 📝 Final Exam — Artificial Intelligence (CP020003)
+
+> 🎯 **Goal**: Demonstrate your understanding of Artificial Intelligence concepts and apply what you have learned throughout the course.
+
+#### 📖 Final Exam Guidelines
+
+| Resource | Link |
+| --- | --- |
+| 📄 Final Exam Guide | Read the Full Guideline (PDF) |
+
+> 💡 **Reminder**: Please read the exam guidelines carefully, review the course materials, and follow all exam instructions.
+
+🍀 **Good luck, everyone\!** Do your best and ace the final exam\! 🎉
+
+---
+
 ### 📅 Final Project Presentation — Worth 40% of Your Final Grade
 
 > 🎯 **Goal**: Design, build, and orally present an original AI project connecting to any topic covered in this course — from feature engineering and supervised/unsupervised learning to recommenders, forecasting, computer vision, and modern foundation models.
